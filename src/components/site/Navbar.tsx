@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -27,24 +27,52 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-background/85 backdrop-blur-xl border-b border-border shadow-card-soft"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-card-soft"
           : "bg-transparent",
       )}
     >
+      {/* Top utility bar */}
+      <div
+        className={cn(
+          "hidden md:block transition-all overflow-hidden",
+          scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100",
+          "border-b border-white/10",
+        )}
+      >
+        <div className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between py-2 text-xs text-white/70">
+          <span>هندسة موثوقة · حلول عزل بمعايير عالمية</span>
+          <a href="tel:+9665000000000" className="inline-flex items-center gap-2 hover:text-accent-amber transition" dir="ltr">
+            <Phone className="h-3.5 w-3.5" />
+            +966 5X XXX XXXX
+          </a>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex h-18 items-center justify-between py-4">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-brand shadow-glow">
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-brand shadow-glow">
               <span className="font-display text-lg font-black text-brand-foreground">C</span>
+              <span className="absolute -bottom-1 -end-1 h-3 w-3 rounded-full bg-accent-amber border-2 border-background" />
             </div>
-            <span
-              className={cn(
-                "font-display text-xl font-black tracking-tight transition-colors",
-                scrolled ? "text-foreground" : "text-white",
-              )}
-            >
-              CASCACA
-            </span>
+            <div className="flex flex-col leading-none">
+              <span
+                className={cn(
+                  "font-display text-xl font-black tracking-tight transition-colors",
+                  scrolled ? "text-foreground" : "text-white",
+                )}
+              >
+                CASCACA
+              </span>
+              <span
+                className={cn(
+                  "text-[10px] tracking-[0.25em] uppercase mt-1 transition-colors",
+                  scrolled ? "text-muted-foreground" : "text-white/55",
+                )}
+              >
+                Engineering · Insulation
+              </span>
+            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
@@ -53,16 +81,16 @@ export function Navbar() {
                 key={l.to}
                 to={l.to}
                 className={cn(
-                  "px-4 py-2 text-sm font-medium rounded-md transition-colors",
+                  "relative px-4 py-2 text-sm font-medium rounded-md transition-colors link-underline",
                   scrolled
-                    ? "text-foreground/80 hover:text-foreground hover:bg-accent"
-                    : "text-white/85 hover:text-white hover:bg-white/10",
+                    ? "text-foreground/75 hover:text-foreground"
+                    : "text-white/80 hover:text-white",
                 )}
                 activeOptions={{ exact: l.to === "/" }}
                 activeProps={{
                   className: cn(
-                    "px-4 py-2 text-sm font-bold rounded-md",
-                    scrolled ? "text-brand bg-accent" : "text-white bg-white/15",
+                    "relative px-4 py-2 text-sm font-bold rounded-md link-underline is-active",
+                    scrolled ? "text-brand" : "text-white",
                   ),
                 }}
               >
@@ -74,7 +102,7 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-md bg-accent-amber px-5 py-2.5 text-sm font-bold text-brand-deep shadow-glow hover:brightness-110 transition"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-amber px-5 py-2.5 text-sm font-bold text-brand-deep shadow-glow hover:brightness-110 transition"
             >
               اطلب عرض سعر
             </Link>
@@ -110,7 +138,7 @@ export function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="mt-3 inline-flex items-center justify-center rounded-md bg-accent-amber px-5 py-3 text-sm font-bold text-brand-deep"
+                className="mt-3 inline-flex items-center justify-center rounded-md bg-gradient-amber px-5 py-3 text-sm font-bold text-brand-deep"
               >
                 اطلب عرض سعر
               </Link>
