@@ -171,6 +171,9 @@ function HomePage() {
       {/* CLIENTS */}
       <Clients />
 
+      {/* SIGNATURE — repeating brand phrases */}
+      <SignatureMarquee />
+
       {/* TRUST STRIP — practical commitments */}
       <TrustStrip />
 
@@ -180,22 +183,23 @@ function HomePage() {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10 grid gap-14 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <div>
-              <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.3em] uppercase text-brand mb-4">
+              <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.35em] uppercase text-brand mb-4">
                 <span className="h-px w-8 bg-brand/40" />
-                من نحن
+                هويّتنا
               </span>
               <h2 className="font-display text-3xl md:text-5xl font-black text-foreground leading-[1.15] text-balance">
-                هندسة دقيقة. تنفيذ موثوق. ثقة تتجدّد مع كل مشروع.
+                لسنا الأسرع. نحن الأدقّ.
               </h2>
               <p className="mt-6 text-muted-foreground leading-loose text-lg">
-                [نص تعريفي عن الشركة — يُحدَّث لاحقاً]. CASCACA شركة متخصصة في الحلول الهندسية وأعمال
-                العزل، نخدم القطاعين الصناعي والتجاري بفريق فنّي متمرس وأحدث المواد والأساليب.
+                CASCACA شركة هندسية متخصصة في حلول العزل للقطاعين الصناعي والتجاري.
+                نُؤمن أن العمل الذي يبقى لسنوات يبدأ بقرار صحيح في اليوم الأول — لا بأدوات
+                باهظة في اليوم الأخير.
               </p>
               <ul className="mt-8 space-y-4">
                 {[
-                  "كوادر هندسية مؤهلة وخبرات متخصصة في العزل",
-                  "مواد معتمدة من موردين موثوقين عالمياً",
-                  "حلول مخصصة تتناسب مع طبيعة كل مشروع",
+                  "دراسة هندسية تسبق كل تنفيذ",
+                  "مواد معتمدة من موردين موثوقين",
+                  "حلٌّ يُصمَّم لموقعك، لا قالب جاهز",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-3">
                     <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand/10">
@@ -209,7 +213,7 @@ function HomePage() {
                 to="/about"
                 className="mt-10 inline-flex items-center gap-2 text-brand font-bold hover:gap-3 transition-all"
               >
-                تعرّف علينا أكثر
+                اقرأ عن منهجنا
                 <ArrowLeft className="h-4 w-4" />
               </Link>
             </div>
