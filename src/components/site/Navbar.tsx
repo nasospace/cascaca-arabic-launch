@@ -40,7 +40,7 @@ export function Navbar() {
         )}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-10 flex items-center justify-between py-2 text-xs text-white/70">
-          <span>هندسة موثوقة · حلول عزل بمعايير عالمية</span>
+          <span className="tracking-wider">نُصمّم الحل قبل أن نُنفّذه · CASCACA</span>
           <a href="tel:+9665000000000" className="inline-flex items-center gap-2 hover:text-accent-amber transition" dir="ltr">
             <Phone className="h-3.5 w-3.5" />
             +966 5X XXX XXXX

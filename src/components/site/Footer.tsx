@@ -13,9 +13,13 @@ export function Footer() {
             <span className="font-display text-xl font-black text-white">CASCACA</span>
           </div>
           <p className="text-sm text-white/65 leading-relaxed">
-            شركة متخصصة في الحلول الهندسية وأعمال العزل، نقدم خدمات احترافية لعملائنا في القطاعين
-            التجاري والصناعي.
+            نُصمّم الحل قبل أن نُنفّذه. شركة هندسية متخصصة في حلول العزل
+            للقطاعين الصناعي والتجاري — عملٌ يبقى بعد أن نُغادر الموقع.
           </p>
+          <div className="mt-5 flex items-center gap-2 text-[10px] tracking-[0.4em] uppercase text-accent-amber/80 font-bold">
+            <span className="h-px w-6 bg-accent-amber/40" />
+            دقة · طبقة · استمرار
+          </div>
         </div>
 
         <div>
@@ -61,7 +65,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 py-6 text-xs text-white/50 flex flex-col md:flex-row gap-2 justify-between">
           <span>© {new Date().getFullYear()} CASCACA. جميع الحقوق محفوظة.</span>
-          <span>تصميم احترافي · جودة عالية · ثقة دائمة</span>
+          <span className="tracking-widest">نَبني عزلاً يدوم — طبقةً فوق طبقة.</span>
         </div>
       </div>
     </footer>

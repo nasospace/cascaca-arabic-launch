@@ -17,9 +17,9 @@ export function ProcessTimeline() {
       <div className="absolute inset-0 blueprint-pattern opacity-50 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
         <SectionHeading
-          eyebrow="منهجية العمل"
-          title="من الفكرة إلى التسليم"
-          description="مسار واضح ومنظّم نتبعه في كل مشروع لضمان نتيجة موثوقة."
+          eyebrow="كيف نعمل"
+          title="من أول مكالمة، إلى آخر تفصيلة."
+          description="مسارٌ هادئ ومنظّم نتبعه في كل مشروع — لأن العمل الجيّد لا يحتمل الارتجال."
         />
 
         {/* Connecting line (desktop) */}

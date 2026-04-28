@@ -12,15 +12,15 @@ export function CTASection() {
 
           <div className="relative grid gap-10 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-accent-amber/40 bg-accent-amber/10 px-3 py-1 text-[11px] font-bold tracking-[0.25em] uppercase text-accent-amber mb-4">
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent-amber/40 bg-accent-amber/10 px-3 py-1 text-[11px] font-bold tracking-[0.3em] uppercase text-accent-amber mb-4">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent-amber animate-pulse" />
-                ردّ خلال 24 ساعة
+                نردّ خلال 24 ساعة عمل
               </span>
               <h3 className="font-display text-3xl md:text-5xl font-black text-white text-balance leading-[1.15]">
-                لديك مشروع؟ احصل على عرض سعر دقيق من فريق هندسي مختص.
+                ابدأ مشروعك بقرار صحيح. <span className="text-accent-amber">نحن نُحسن السماع.</span>
               </h3>
               <p className="mt-5 text-white/75 text-balance max-w-xl text-base md:text-lg leading-relaxed">
-                أرسل تفاصيل مشروعك الآن — معاينة، دراسة فنية، وعرض سعر واضح بدون التزام.
+                أرسل تفاصيل مشروعك — معاينة، دراسة فنية، وعرض سعر واضح. بدون التزام، وبدون مبالغة.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:min-w-[14rem]">

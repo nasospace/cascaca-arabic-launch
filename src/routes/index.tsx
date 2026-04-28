@@ -26,6 +26,8 @@ import { ProcessTimeline } from "@/components/site/ProcessTimeline";
 import { ProjectsGrid, type Project } from "@/components/site/ProjectsGrid";
 import { QuoteDialog } from "@/components/site/QuoteDialog";
 import { TrustStrip } from "@/components/site/TrustStrip";
+import { Philosophy } from "@/components/site/Philosophy";
+import { SignatureMarquee } from "@/components/site/SignatureMarquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -101,24 +103,24 @@ function HomePage() {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-32 w-full">
           <div className="max-w-3xl">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-accent-amber/40 bg-accent-amber/10 px-4 py-1.5 text-xs font-bold text-accent-amber tracking-[0.2em]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent-amber/40 bg-accent-amber/10 px-4 py-1.5 text-xs font-bold text-accent-amber tracking-[0.25em]">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent-amber animate-pulse" />
-                CASCACA · الهندسة والعزل
+                CASCACA · هندسة وعزل
               </span>
             </Reveal>
 
             <Reveal delay={120}>
               <h1 className="mt-6 font-display text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] text-balance tracking-tight">
-                حلول عزل تدوم،
+                نَبني عزلاً يدوم،
                 <br />
-                <span className="text-accent-amber">وتنفيذ هندسي</span> تثق به.
+                <span className="text-accent-amber">طبقةً</span> فوق طبقة.
               </h1>
             </Reveal>
 
             <Reveal delay={220}>
               <p className="mt-7 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl text-balance">
-                في CASCACA، نقدّم حلول عزل متكاملة وخدمات هندسية للمشاريع الصناعية والتجارية،
-                بفريق متخصص يعمل وفق معايير تنفيذ دقيقة ومواعيد ملتزمة.
+                نُصمّم الحل قبل أن نُنفّذه. حلول عزل وخدمات هندسية للمشاريع الصناعية والتجارية،
+                بفريق يُحسن قراءة الموقع، ويلتزم بما يقوله.
               </p>
             </Reveal>
 
@@ -146,7 +148,7 @@ function HomePage() {
             {/* Trust hint pill */}
             <Reveal delay={420}>
               <div className="mt-12 inline-flex flex-wrap items-center gap-x-6 gap-y-3 rounded-full border border-white/15 bg-white/5 backdrop-blur px-6 py-3">
-                {["خبرة", "جودة", "التزام"].map((w, i) => (
+                {["دقة", "طبقة", "استمرار"].map((w, i) => (
                   <span key={w} className="flex items-center gap-2 text-sm font-bold text-white/85">
                     {i > 0 && <span className="h-1 w-1 rounded-full bg-accent-amber/70" />}
                     <Sparkles className="h-3.5 w-3.5 text-accent-amber" />
@@ -169,6 +171,9 @@ function HomePage() {
       {/* CLIENTS */}
       <Clients />
 
+      {/* SIGNATURE — repeating brand phrases */}
+      <SignatureMarquee />
+
       {/* TRUST STRIP — practical commitments */}
       <TrustStrip />
 
@@ -178,22 +183,23 @@ function HomePage() {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10 grid gap-14 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <div>
-              <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.3em] uppercase text-brand mb-4">
+              <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.35em] uppercase text-brand mb-4">
                 <span className="h-px w-8 bg-brand/40" />
-                من نحن
+                هويّتنا
               </span>
               <h2 className="font-display text-3xl md:text-5xl font-black text-foreground leading-[1.15] text-balance">
-                هندسة دقيقة. تنفيذ موثوق. ثقة تتجدّد مع كل مشروع.
+                لسنا الأسرع. نحن الأدقّ.
               </h2>
               <p className="mt-6 text-muted-foreground leading-loose text-lg">
-                [نص تعريفي عن الشركة — يُحدَّث لاحقاً]. CASCACA شركة متخصصة في الحلول الهندسية وأعمال
-                العزل، نخدم القطاعين الصناعي والتجاري بفريق فنّي متمرس وأحدث المواد والأساليب.
+                CASCACA شركة هندسية متخصصة في حلول العزل للقطاعين الصناعي والتجاري.
+                نُؤمن أن العمل الذي يبقى لسنوات يبدأ بقرار صحيح في اليوم الأول — لا بأدوات
+                باهظة في اليوم الأخير.
               </p>
               <ul className="mt-8 space-y-4">
                 {[
-                  "كوادر هندسية مؤهلة وخبرات متخصصة في العزل",
-                  "مواد معتمدة من موردين موثوقين عالمياً",
-                  "حلول مخصصة تتناسب مع طبيعة كل مشروع",
+                  "دراسة هندسية تسبق كل تنفيذ",
+                  "مواد معتمدة من موردين موثوقين",
+                  "حلٌّ يُصمَّم لموقعك، لا قالب جاهز",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-3">
                     <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand/10">
@@ -207,7 +213,7 @@ function HomePage() {
                 to="/about"
                 className="mt-10 inline-flex items-center gap-2 text-brand font-bold hover:gap-3 transition-all"
               >
-                تعرّف علينا أكثر
+                اقرأ عن منهجنا
                 <ArrowLeft className="h-4 w-4" />
               </Link>
             </div>
@@ -226,9 +232,9 @@ function HomePage() {
                 />
               </div>
               {/* Floating amber badge */}
-              <div className="absolute -top-6 -end-6 rounded-2xl bg-gradient-amber text-brand-deep p-5 shadow-glow hidden md:block">
-                <div className="font-display text-3xl font-black leading-none">جودة</div>
-                <div className="text-xs font-bold mt-1 opacity-80">معايير عالمية</div>
+              <div className="absolute -top-6 -end-6 rounded-2xl bg-gradient-amber text-brand-deep p-5 shadow-glow hidden md:block corner-ticks">
+                <div className="font-display text-3xl font-black leading-none">طبقة</div>
+                <div className="text-xs font-bold mt-1 opacity-80">فوق طبقة</div>
               </div>
               <div className="absolute -bottom-8 -start-8 bg-card border border-border rounded-2xl p-6 shadow-elegant max-w-xs hidden md:block">
                 <div className="flex items-center gap-3 mb-3">
@@ -236,12 +242,12 @@ function HomePage() {
                     <Shield className="h-6 w-6 text-brand-foreground" />
                   </div>
                   <div>
-                    <div className="font-display font-black text-lg">سلامة وثقة</div>
-                    <div className="text-xs text-muted-foreground">في كل مشروع</div>
+                    <div className="font-display font-black text-lg">عملٌ يبقى</div>
+                    <div className="text-xs text-muted-foreground">بعد أن نُغادر الموقع</div>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  ملتزمون بأعلى معايير السلامة المهنية والجودة الفنية.
+                  العزل الجيّد لا يُرى — لكنه يُحسّ كل صيف وكل شتاء، لسنوات.
                 </p>
               </div>
             </div>
@@ -254,9 +260,9 @@ function HomePage() {
         <div className="absolute inset-0 blueprint-pattern opacity-60 pointer-events-none" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
           <SectionHeading
-            eyebrow="خدماتنا"
-            title="حلول هندسية متكاملة بدقة فنية عالية"
-            description="نقدم باقة من الخدمات المتخصصة في العزل والحلول الهندسية، مصممة لتلبي متطلبات المشاريع الصناعية والتجارية."
+            eyebrow="ما نُتقنه"
+            title="ثلاث طبقات من الحماية، خبرة واحدة."
+            description="خدماتنا الأساسية مبنية على فهم عميق لطبيعة الموقع، ومواد تليق بسنوات التشغيل القادمة."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
@@ -265,8 +271,13 @@ function HomePage() {
                   {/* Hover accent corner */}
                   <div className="absolute -top-16 -end-16 h-40 w-40 rounded-full bg-gradient-amber opacity-0 group-hover:opacity-15 blur-2xl transition-opacity duration-500" />
                   <div className="relative">
-                    <div className="h-14 w-14 rounded-xl bg-gradient-brand flex items-center justify-center mb-6 group-hover:shadow-glow transition">
-                      <s.icon className="h-7 w-7 text-brand-foreground" strokeWidth={1.75} />
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="h-14 w-14 rounded-xl bg-gradient-brand flex items-center justify-center group-hover:shadow-glow transition">
+                        <s.icon className="h-7 w-7 text-brand-foreground" strokeWidth={1.75} />
+                      </div>
+                      <span className="font-display text-xs font-black text-accent-amber tracking-[0.3em]">
+                        / 0{i + 1}
+                      </span>
                     </div>
                     <h3 className="font-display text-xl font-black text-foreground mb-3 group-hover:text-brand transition">
                       {s.title}
@@ -276,7 +287,7 @@ function HomePage() {
                       to="/services"
                       className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand hover:gap-3 transition-all"
                     >
-                      اعرف المزيد <ArrowLeft className="h-4 w-4" />
+                      تفاصيل الخدمة <ArrowLeft className="h-4 w-4" />
                     </Link>
                   </div>
                 </div>
@@ -286,13 +297,16 @@ function HomePage() {
         </div>
       </section>
 
+      {/* PHILOSOPHY — brand manifesto */}
+      <Philosophy />
+
       {/* PROJECTS */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <SectionHeading
-            eyebrow="أعمالنا"
-            title="مشاريع نفخر بإنجازها"
-            description="نماذج مختارة من أعمالنا تعكس مستوى الجودة والاحتراف الذي نقدمه لعملائنا."
+            eyebrow="عملٌ على الأرض"
+            title="مشاريع تُحدّث عنّا قبل أن نتحدث."
+            description="مختارات من تنفيذنا — كل مشروع له ظروفه، وحلّه الذي صُمّم له تحديداً."
           />
           <ProjectsGrid
             projects={projects}
@@ -303,7 +317,7 @@ function HomePage() {
               to="/projects"
               className="inline-flex items-center gap-2 rounded-md border-2 border-brand bg-transparent px-7 py-3.5 text-sm font-bold text-brand hover:bg-brand hover:text-brand-foreground transition"
             >
-              عرض كل الأعمال
+              تصفّح كامل الأعمال
               <ArrowLeft className="h-4 w-4" />
             </Link>
           </div>
@@ -318,8 +332,8 @@ function HomePage() {
           <SectionHeading
             invert
             eyebrow="لماذا CASCACA"
-            title="ما الذي يجعلنا الخيار الموثوق؟"
-            description="نلتزم بمعايير صارمة في كل تفصيل، لأن مشروعك يستحق شريكاً يفهم قيمة الدقة."
+            title="لأن مشروعك يستحق قراراً صحيحاً، لا حلاً سريعاً."
+            description="أربع التزامات نتعامل بها مع كل مشروع — لا شعارات، بل طريقة عمل."
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b, i) => (
@@ -342,6 +356,9 @@ function HomePage() {
 
       {/* TESTIMONIALS */}
       <Testimonials />
+
+      {/* SIGNATURE — inverted before CTA */}
+      <SignatureMarquee invert />
 
       {/* FINAL CTA */}
       <CTASection />

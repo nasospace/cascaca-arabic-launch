@@ -23,17 +23,26 @@ export function SectionHeading({
       {eyebrow && (
         <span
           className={cn(
-            "inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.3em] uppercase mb-4",
+            "inline-flex items-center gap-2.5 text-[11px] font-bold tracking-[0.35em] uppercase mb-5",
             invert ? "text-accent-amber" : "text-brand",
+            align === "center" && "justify-center w-full",
           )}
         >
           <span
             className={cn(
-              "h-px w-8",
+              "h-px w-6",
               invert ? "bg-accent-amber/60" : "bg-brand/40",
             )}
           />
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent-amber" />
           {eyebrow}
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent-amber/40" />
+          <span
+            className={cn(
+              "h-px w-6",
+              invert ? "bg-accent-amber/60" : "bg-brand/40",
+            )}
+          />
         </span>
       )}
       <h2
