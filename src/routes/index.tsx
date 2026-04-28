@@ -232,9 +232,9 @@ function HomePage() {
                 />
               </div>
               {/* Floating amber badge */}
-              <div className="absolute -top-6 -end-6 rounded-2xl bg-gradient-amber text-brand-deep p-5 shadow-glow hidden md:block">
-                <div className="font-display text-3xl font-black leading-none">جودة</div>
-                <div className="text-xs font-bold mt-1 opacity-80">معايير عالمية</div>
+              <div className="absolute -top-6 -end-6 rounded-2xl bg-gradient-amber text-brand-deep p-5 shadow-glow hidden md:block corner-ticks">
+                <div className="font-display text-3xl font-black leading-none">طبقة</div>
+                <div className="text-xs font-bold mt-1 opacity-80">فوق طبقة</div>
               </div>
               <div className="absolute -bottom-8 -start-8 bg-card border border-border rounded-2xl p-6 shadow-elegant max-w-xs hidden md:block">
                 <div className="flex items-center gap-3 mb-3">
@@ -242,12 +242,12 @@ function HomePage() {
                     <Shield className="h-6 w-6 text-brand-foreground" />
                   </div>
                   <div>
-                    <div className="font-display font-black text-lg">سلامة وثقة</div>
-                    <div className="text-xs text-muted-foreground">في كل مشروع</div>
+                    <div className="font-display font-black text-lg">عملٌ يبقى</div>
+                    <div className="text-xs text-muted-foreground">بعد أن نُغادر الموقع</div>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  ملتزمون بأعلى معايير السلامة المهنية والجودة الفنية.
+                  العزل الجيّد لا يُرى — لكنه يُحسّ كل صيف وكل شتاء، لسنوات.
                 </p>
               </div>
             </div>
@@ -260,9 +260,9 @@ function HomePage() {
         <div className="absolute inset-0 blueprint-pattern opacity-60 pointer-events-none" />
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
           <SectionHeading
-            eyebrow="خدماتنا"
-            title="حلول هندسية متكاملة بدقة فنية عالية"
-            description="نقدم باقة من الخدمات المتخصصة في العزل والحلول الهندسية، مصممة لتلبي متطلبات المشاريع الصناعية والتجارية."
+            eyebrow="ما نُتقنه"
+            title="ثلاث طبقات من الحماية، خبرة واحدة."
+            description="خدماتنا الأساسية مبنية على فهم عميق لطبيعة الموقع، ومواد تليق بسنوات التشغيل القادمة."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
@@ -271,8 +271,13 @@ function HomePage() {
                   {/* Hover accent corner */}
                   <div className="absolute -top-16 -end-16 h-40 w-40 rounded-full bg-gradient-amber opacity-0 group-hover:opacity-15 blur-2xl transition-opacity duration-500" />
                   <div className="relative">
-                    <div className="h-14 w-14 rounded-xl bg-gradient-brand flex items-center justify-center mb-6 group-hover:shadow-glow transition">
-                      <s.icon className="h-7 w-7 text-brand-foreground" strokeWidth={1.75} />
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="h-14 w-14 rounded-xl bg-gradient-brand flex items-center justify-center group-hover:shadow-glow transition">
+                        <s.icon className="h-7 w-7 text-brand-foreground" strokeWidth={1.75} />
+                      </div>
+                      <span className="font-display text-xs font-black text-accent-amber tracking-[0.3em]">
+                        / 0{i + 1}
+                      </span>
                     </div>
                     <h3 className="font-display text-xl font-black text-foreground mb-3 group-hover:text-brand transition">
                       {s.title}
@@ -282,7 +287,7 @@ function HomePage() {
                       to="/services"
                       className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand hover:gap-3 transition-all"
                     >
-                      اعرف المزيد <ArrowLeft className="h-4 w-4" />
+                      تفاصيل الخدمة <ArrowLeft className="h-4 w-4" />
                     </Link>
                   </div>
                 </div>
@@ -292,13 +297,16 @@ function HomePage() {
         </div>
       </section>
 
+      {/* PHILOSOPHY — brand manifesto */}
+      <Philosophy />
+
       {/* PROJECTS */}
       <section className="py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <SectionHeading
-            eyebrow="أعمالنا"
-            title="مشاريع نفخر بإنجازها"
-            description="نماذج مختارة من أعمالنا تعكس مستوى الجودة والاحتراف الذي نقدمه لعملائنا."
+            eyebrow="عملٌ على الأرض"
+            title="مشاريع تُحدّث عنّا قبل أن نتحدث."
+            description="مختارات من تنفيذنا — كل مشروع له ظروفه، وحلّه الذي صُمّم له تحديداً."
           />
           <ProjectsGrid
             projects={projects}
@@ -309,7 +317,7 @@ function HomePage() {
               to="/projects"
               className="inline-flex items-center gap-2 rounded-md border-2 border-brand bg-transparent px-7 py-3.5 text-sm font-bold text-brand hover:bg-brand hover:text-brand-foreground transition"
             >
-              عرض كل الأعمال
+              تصفّح كامل الأعمال
               <ArrowLeft className="h-4 w-4" />
             </Link>
           </div>
@@ -324,8 +332,8 @@ function HomePage() {
           <SectionHeading
             invert
             eyebrow="لماذا CASCACA"
-            title="ما الذي يجعلنا الخيار الموثوق؟"
-            description="نلتزم بمعايير صارمة في كل تفصيل، لأن مشروعك يستحق شريكاً يفهم قيمة الدقة."
+            title="لأن مشروعك يستحق قراراً صحيحاً، لا حلاً سريعاً."
+            description="أربع التزامات نتعامل بها مع كل مشروع — لا شعارات، بل طريقة عمل."
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b, i) => (
