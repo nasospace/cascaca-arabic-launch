@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Phone, Mail, MapPin, MessageCircle, Send, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
+import { QuoteForm } from "@/components/site/QuoteForm";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -8,7 +8,7 @@ export const Route = createFileRoute("/contact")({
       { title: "تواصل معنا — CASCACA" },
       { name: "description", content: "تواصل مع فريق CASCACA لطلب عرض سعر أو استشارة هندسية." },
       { property: "og:title", content: "تواصل مع CASCACA" },
-      { property: "og:description", content: "نحن هنا لمساعدتك — اتصل بنا الآن." },
+      { property: "og:description", content: "أرسل تفاصيل مشروعك ويردّ عليك مهندس مختص." },
     ],
   }),
   component: ContactPage,
