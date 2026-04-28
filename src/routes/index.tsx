@@ -357,6 +357,9 @@ function HomePage() {
       {/* TESTIMONIALS */}
       <Testimonials />
 
+      {/* SIGNATURE — inverted before CTA */}
+      <SignatureMarquee invert />
+
       {/* FINAL CTA */}
       <CTASection />
     </>
