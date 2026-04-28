@@ -26,6 +26,8 @@ import { ProcessTimeline } from "@/components/site/ProcessTimeline";
 import { ProjectsGrid, type Project } from "@/components/site/ProjectsGrid";
 import { QuoteDialog } from "@/components/site/QuoteDialog";
 import { TrustStrip } from "@/components/site/TrustStrip";
+import { Philosophy } from "@/components/site/Philosophy";
+import { SignatureMarquee } from "@/components/site/SignatureMarquee";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -101,24 +103,24 @@ function HomePage() {
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-32 w-full">
           <div className="max-w-3xl">
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-accent-amber/40 bg-accent-amber/10 px-4 py-1.5 text-xs font-bold text-accent-amber tracking-[0.2em]">
+              <span className="inline-flex items-center gap-2 rounded-full border border-accent-amber/40 bg-accent-amber/10 px-4 py-1.5 text-xs font-bold text-accent-amber tracking-[0.25em]">
                 <span className="h-1.5 w-1.5 rounded-full bg-accent-amber animate-pulse" />
-                CASCACA · الهندسة والعزل
+                CASCACA · هندسة وعزل
               </span>
             </Reveal>
 
             <Reveal delay={120}>
               <h1 className="mt-6 font-display text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] text-balance tracking-tight">
-                حلول عزل تدوم،
+                نَبني عزلاً يدوم،
                 <br />
-                <span className="text-accent-amber">وتنفيذ هندسي</span> تثق به.
+                <span className="text-accent-amber">طبقةً</span> فوق طبقة.
               </h1>
             </Reveal>
 
             <Reveal delay={220}>
               <p className="mt-7 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl text-balance">
-                في CASCACA، نقدّم حلول عزل متكاملة وخدمات هندسية للمشاريع الصناعية والتجارية،
-                بفريق متخصص يعمل وفق معايير تنفيذ دقيقة ومواعيد ملتزمة.
+                نُصمّم الحل قبل أن نُنفّذه. حلول عزل وخدمات هندسية للمشاريع الصناعية والتجارية،
+                بفريق يُحسن قراءة الموقع، ويلتزم بما يقوله.
               </p>
             </Reveal>
 
@@ -146,7 +148,7 @@ function HomePage() {
             {/* Trust hint pill */}
             <Reveal delay={420}>
               <div className="mt-12 inline-flex flex-wrap items-center gap-x-6 gap-y-3 rounded-full border border-white/15 bg-white/5 backdrop-blur px-6 py-3">
-                {["خبرة", "جودة", "التزام"].map((w, i) => (
+                {["دقة", "طبقة", "استمرار"].map((w, i) => (
                   <span key={w} className="flex items-center gap-2 text-sm font-bold text-white/85">
                     {i > 0 && <span className="h-1 w-1 rounded-full bg-accent-amber/70" />}
                     <Sparkles className="h-3.5 w-3.5 text-accent-amber" />
