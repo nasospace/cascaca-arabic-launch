@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SectionHeading } from "@/components/site/SectionHeading";
+
 import { CTASection } from "@/components/site/CTASection";
 import { ProjectsGrid, type Project } from "@/components/site/ProjectsGrid";
 import p1 from "@/assets/project-1.jpg";
