@@ -24,6 +24,8 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { Clients } from "@/components/site/Clients";
 import { ProcessTimeline } from "@/components/site/ProcessTimeline";
 import { ProjectsGrid, type Project } from "@/components/site/ProjectsGrid";
+import { QuoteDialog } from "@/components/site/QuoteDialog";
+import { TrustStrip } from "@/components/site/TrustStrip";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -107,34 +109,37 @@ function HomePage() {
 
             <Reveal delay={120}>
               <h1 className="mt-6 font-display text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] text-balance tracking-tight">
-                نبني عزلاً يدوم
+                حلول عزل تدوم،
                 <br />
-                <span className="text-accent-amber">وحلولاً هندسية</span> تُحدث الفرق.
+                <span className="text-accent-amber">وتنفيذ هندسي</span> تثق به.
               </h1>
             </Reveal>
 
             <Reveal delay={220}>
               <p className="mt-7 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl text-balance">
-                في CASCACA، نقدّم خدمات عزل وحلول هندسية متكاملة للمشاريع الصناعية والتجارية،
-                بفريق متخصص يضع الجودة والدقة فوق كل اعتبار.
+                في CASCACA، نقدّم حلول عزل متكاملة وخدمات هندسية للمشاريع الصناعية والتجارية،
+                بفريق متخصص يعمل وفق معايير تنفيذ دقيقة ومواعيد ملتزمة.
               </p>
             </Reveal>
 
             <Reveal delay={320}>
               <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-amber px-7 py-4 text-sm font-bold text-brand-deep hover:brightness-110 transition shadow-glow"
-                >
-                  اطلب عرض سعر
-                  <ArrowLeft className="h-4 w-4" />
-                </Link>
-                <Link
-                  to="/contact"
+                <QuoteDialog
+                  trigger={
+                    <button className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-amber px-7 py-4 text-sm font-bold text-brand-deep hover:brightness-110 transition shadow-glow">
+                      اطلب عرض سعر الآن
+                      <ArrowLeft className="h-4 w-4" />
+                    </button>
+                  }
+                />
+                <a
+                  href="https://wa.me/9665000000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-md border border-white/25 bg-white/5 backdrop-blur px-7 py-4 text-sm font-bold text-white hover:bg-white/10 transition"
                 >
-                  تواصل معنا
-                </Link>
+                  تواصل مع مهندس
+                </a>
               </div>
             </Reveal>
 
