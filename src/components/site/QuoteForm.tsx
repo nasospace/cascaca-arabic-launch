@@ -53,8 +53,8 @@ export function QuoteForm({ compact = false, onDone }: { compact?: boolean; onDo
     return (
       <div className="rounded-xl bg-brand/5 border border-brand/30 p-6 text-center">
         <CheckCircle2 className="h-10 w-10 text-brand mx-auto mb-3" />
-        <h3 className="font-display text-lg font-black text-foreground mb-1">تم استلام طلبك</h3>
-        <p className="text-sm text-muted-foreground">سيتواصل معك أحد المهندسين خلال 24 ساعة.</p>
+        <h3 className="font-display text-lg font-black text-foreground mb-1">وصلنا طلبك.</h3>
+        <p className="text-sm text-muted-foreground">سيتواصل معك أحد المهندسين خلال 24 ساعة عمل — بدون رسائل تسويقية.</p>
       </div>
     );
   }
@@ -109,7 +109,7 @@ export function QuoteForm({ compact = false, onDone }: { compact?: boolean; onDo
         أرسل الطلب — يردّ مهندس خلال 24 ساعة
       </button>
       <p className="text-[11px] text-muted-foreground text-center">
-        بإرسالك الطلب، توافق على أن نتواصل معك بخصوص مشروعك فقط.
+        نتواصل معك بشأن مشروعك فقط. لا قوائم بريدية، ولا اتصالات لاحقة.
       </p>
     </form>
   );
