@@ -91,14 +91,14 @@ function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid gap-6 sm:grid-cols-3">
             {[
-              { icon: Award, n: "+10", l: "سنوات خبرة" },
-              { icon: Users, n: "+50", l: "خبير وفني" },
-              { icon: Shield, n: "+100", l: "مشروع منجز" },
+              { icon: Award, t: "خبرة متخصصة", d: "في العزل والمشاريع الهندسية." },
+              { icon: Users, t: "فريق متكامل", d: "مهندسون وفنيون مؤهلون." },
+              { icon: Shield, t: "تنفيذ موثّق", d: "نتابع كل مرحلة بشفافية." },
             ].map((s) => (
-              <div key={s.l} className="bg-gradient-brand rounded-2xl p-8 text-center shadow-elegant">
+              <div key={s.t} className="bg-gradient-brand rounded-2xl p-8 text-center shadow-elegant">
                 <s.icon className="h-10 w-10 text-accent-amber mx-auto mb-4" />
-                <div className="font-display text-5xl font-black text-brand-foreground">{s.n}</div>
-                <div className="mt-2 text-brand-foreground/70 text-sm">{s.l}</div>
+                <div className="font-display text-2xl font-black text-brand-foreground">{s.t}</div>
+                <div className="mt-2 text-brand-foreground/70 text-sm">{s.d}</div>
               </div>
             ))}
           </div>
