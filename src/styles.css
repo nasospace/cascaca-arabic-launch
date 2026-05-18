@@ -1,15 +1,13 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --font-sans: "Montserrat", system-ui, sans-serif;
+  --font-arabic: "Tajawal", system-ui, sans-serif;
+  --font-display: "Cinzel", "Montserrat", serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -29,222 +27,106 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-deep: var(--brand-deep);
   --color-brand-soft: var(--brand-soft);
-  --color-accent-amber: var(--accent-amber);
-  --color-accent-amber-deep: var(--accent-amber-deep);
-  --font-display: "Cairo", "Tajawal", system-ui, sans-serif;
-  --font-sans: "Tajawal", "Cairo", system-ui, sans-serif;
+  --color-neutral-gray: var(--neutral-gray);
 }
 
 :root {
-  --radius: 0.75rem;
-
-  /* Premium engineering palette: deep midnight navy + steel + warm amber */
-  --background: oklch(0.985 0.004 240);
-  --foreground: oklch(0.16 0.04 252);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.22 0.03 250);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.16 0.04 252);
+  --card-foreground: oklch(0.22 0.03 250);
+
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.16 0.04 252);
+  --popover-foreground: oklch(0.22 0.03 250);
 
-  --primary: oklch(0.22 0.07 258);
-  --primary-foreground: oklch(0.99 0.003 240);
+  /* Primary brand — #637eb5 */
+  --primary: oklch(0.58 0.09 260);
+  --primary-foreground: oklch(1 0 0);
 
-  --secondary: oklch(0.965 0.007 245);
-  --secondary-foreground: oklch(0.22 0.07 258);
+  --secondary: oklch(0.96 0.005 260);
+  --secondary-foreground: oklch(0.25 0.03 260);
 
-  --muted: oklch(0.96 0.008 245);
-  --muted-foreground: oklch(0.46 0.025 252);
+  --muted: oklch(0.965 0.004 260);
+  --muted-foreground: oklch(0.5 0.015 260);
 
-  --accent: oklch(0.94 0.018 245);
-  --accent-foreground: oklch(0.22 0.07 258);
+  --accent: oklch(0.95 0.01 260);
+  --accent-foreground: oklch(0.25 0.03 260);
 
-  --destructive: oklch(0.58 0.22 25);
-  --destructive-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(1 0 0);
 
-  --border: oklch(0.91 0.012 250);
-  --input: oklch(0.91 0.012 250);
-  --ring: oklch(0.55 0.12 248);
+  --border: oklch(0.92 0.005 260);
+  --input: oklch(0.92 0.005 260);
+  --ring: oklch(0.58 0.09 260);
 
-  --brand: oklch(0.28 0.085 258);
-  --brand-foreground: oklch(0.99 0.003 240);
-  --brand-deep: oklch(0.155 0.055 260);
-  --brand-soft: oklch(0.94 0.025 250);
-  --accent-amber: oklch(0.78 0.155 70);
-  --accent-amber-deep: oklch(0.66 0.165 55);
+  --brand: oklch(0.58 0.09 260);          /* #637eb5 */
+  --brand-foreground: oklch(1 0 0);
+  --brand-deep: oklch(0.32 0.06 260);      /* deeper navy */
+  --brand-soft: oklch(0.94 0.025 260);     /* tint */
+  --neutral-gray: oklch(0.68 0 0);         /* #a1a1a1 */
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.13 0.05 262) 0%, oklch(0.22 0.075 256) 55%, oklch(0.18 0.06 260) 100%);
-  --gradient-brand: linear-gradient(135deg, oklch(0.22 0.07 258), oklch(0.34 0.09 252));
-  --gradient-amber: linear-gradient(135deg, oklch(0.78 0.155 70), oklch(0.66 0.165 55));
-  --shadow-elegant: 0 24px 70px -24px oklch(0.155 0.055 260 / 0.4);
-  --shadow-card: 0 6px 28px -10px oklch(0.155 0.055 260 / 0.14);
-  --shadow-glow: 0 0 50px oklch(0.78 0.155 70 / 0.32);
-  --shadow-ring-amber: 0 0 0 4px oklch(0.78 0.155 70 / 0.18);
+  --radius: 0.625rem;
+
+  --gradient-brand: linear-gradient(135deg, oklch(0.42 0.07 260), oklch(0.58 0.09 260));
+  --gradient-hero: linear-gradient(120deg, oklch(0.22 0.04 260) 0%, oklch(0.35 0.07 260) 55%, oklch(0.5 0.09 260) 100%);
+  --shadow-card-soft: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -8px rgb(99 126 181 / 0.15);
+  --shadow-elegant: 0 20px 50px -15px rgb(50 60 100 / 0.35);
+  --shadow-glow: 0 8px 30px -6px rgb(99 126 181 / 0.45);
 }
 
-.dark {
-  --background: oklch(0.13 0.03 258);
-  --foreground: oklch(0.97 0.005 240);
-  --card: oklch(0.18 0.04 258);
-  --card-foreground: oklch(0.97 0.005 240);
-  --popover: oklch(0.18 0.04 258);
-  --popover-foreground: oklch(0.97 0.005 240);
-  --primary: oklch(0.97 0.005 240);
-  --primary-foreground: oklch(0.18 0.04 258);
-  --secondary: oklch(0.24 0.04 258);
-  --secondary-foreground: oklch(0.97 0.005 240);
-  --muted: oklch(0.24 0.04 258);
-  --muted-foreground: oklch(0.7 0.02 250);
-  --accent: oklch(0.24 0.04 258);
-  --accent-foreground: oklch(0.97 0.005 240);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.55 0.12 245);
+* {
+  border-color: var(--color-border);
 }
 
-@layer base {
-  * {
-    border-color: var(--color-border);
-  }
+html { scroll-behavior: smooth; }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    font-feature-settings: "kern", "liga";
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.015em;
-    line-height: 1.15;
-  }
-
-  ::selection {
-    background-color: oklch(0.78 0.155 70 / 0.35);
-    color: oklch(0.155 0.055 260);
-  }
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-@layer utilities {
-  .bg-gradient-hero { background-image: var(--gradient-hero); }
-  .bg-gradient-brand { background-image: var(--gradient-brand); }
-  .bg-gradient-amber { background-image: var(--gradient-amber); }
-  .shadow-elegant { box-shadow: var(--shadow-elegant); }
-  .shadow-card-soft { box-shadow: var(--shadow-card); }
-  .shadow-glow { box-shadow: var(--shadow-glow); }
-  .text-balance { text-wrap: balance; }
+html[lang="ar"] body { font-family: var(--font-arabic); }
+html[lang="ar"] .font-display { font-family: var(--font-arabic); letter-spacing: 0; font-weight: 800; }
 
-  /* Subtle engineering grid (light surfaces) */
-  .grid-pattern {
-    background-image:
-      linear-gradient(oklch(1 0 0 / 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(1 0 0 / 0.045) 1px, transparent 1px);
-    background-size: 56px 56px;
-  }
+.font-display { font-family: var(--font-display); letter-spacing: 0.02em; }
 
-  /* Blueprint pattern for light sections */
-  .blueprint-pattern {
-    background-color: transparent;
-    background-image:
-      linear-gradient(oklch(0.22 0.07 258 / 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, oklch(0.22 0.07 258 / 0.04) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
+.bg-gradient-brand { background-image: var(--gradient-brand); }
+.bg-gradient-hero { background-image: var(--gradient-hero); }
+.shadow-elegant { box-shadow: var(--shadow-elegant); }
+.shadow-card-soft { box-shadow: var(--shadow-card-soft); }
+.shadow-glow { box-shadow: var(--shadow-glow); }
 
-  /* Diagonal stripes (industrial accent) */
-  .stripes-pattern {
-    background-image: repeating-linear-gradient(
-      135deg,
-      oklch(1 0 0 / 0.04) 0 12px,
-      transparent 12px 24px
-    );
-  }
-
-  /* Radial vignette for dark hero */
-  .vignette::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, transparent 40%, oklch(0.13 0.05 262 / 0.7) 100%);
-    pointer-events: none;
-  }
-
-  /* Reveal-on-scroll */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-  }
-  .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* Underline link */
-  .link-underline {
-    position: relative;
-  }
-  .link-underline::after {
-    content: "";
-    position: absolute;
-    inset-inline: 0;
-    bottom: -4px;
-    height: 2px;
-    background: var(--accent-amber);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.35s ease;
-  }
-  .link-underline:hover::after,
-  .link-underline.is-active::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-
-  /* Signature marquee — branded repeating phrases */
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to   { transform: translateX(50%); } /* RTL: items move right-to-left visually */
-  }
-  .animate-marquee {
-    animation: marquee 38s linear infinite;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .animate-marquee { animation: none; }
-  }
-
-  /* Branded corner ticks — small engineering crosshair feel */
-  .corner-ticks {
-    position: relative;
-  }
-  .corner-ticks::before,
-  .corner-ticks::after {
-    content: "";
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border: 1.5px solid var(--accent-amber);
-    opacity: 0.7;
-  }
-  .corner-ticks::before {
-    top: -1px; inset-inline-start: -1px;
-    border-inline-end: 0; border-bottom: 0;
-  }
-  .corner-ticks::after {
-    bottom: -1px; inset-inline-end: -1px;
-    border-inline-start: 0; border-top: 0;
-  }
+/* Subtle blueprint grid */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
+.light-grid {
+  background-image:
+    linear-gradient(rgba(99,126,181,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,126,181,0.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* Smooth language transition */
+.lang-fade { transition: opacity .25s ease; }
+
+/* Section anchor offset for sticky header */
+section[id] { scroll-margin-top: 88px; }
+
+::selection { background: oklch(0.58 0.09 260 / 0.25); }
