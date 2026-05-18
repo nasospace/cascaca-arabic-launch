@@ -1,367 +1,616 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { useT, waLink, buildServiceWaMessage, WA_DISPLAY, EMAIL } from "@/lib/i18n";
 import {
+  ArrowRight,
   ArrowLeft,
-  Shield,
-  Award,
-  Users,
-  Clock,
-  CheckCircle2,
-  Wrench,
-  Building2,
-  Layers,
   ShieldCheck,
-  Sparkles,
+  HardHat,
+  Clock,
+  BadgeDollarSign,
+  Award,
+  Layers,
+  CheckCircle2,
+  Send,
+  MessageCircle,
+  Mail,
+  MapPin,
+  Phone,
+  Droplets,
+  Building2,
+  Bath,
+  Syringe,
+  Wrench,
+  Square,
 } from "lucide-react";
-import heroImg from "@/assets/hero.jpg";
-import p1 from "@/assets/project-1.jpg";
-import p2 from "@/assets/project-2.jpg";
-import p3 from "@/assets/project-3.jpg";
-import p4 from "@/assets/project-4.jpg";
-import { SectionHeading } from "@/components/site/SectionHeading";
-import { CTASection } from "@/components/site/CTASection";
-import { Reveal } from "@/components/site/Reveal";
-import { Testimonials } from "@/components/site/Testimonials";
-import { Clients } from "@/components/site/Clients";
-import { ProcessTimeline } from "@/components/site/ProcessTimeline";
-import { ProjectsGrid, type Project } from "@/components/site/ProjectsGrid";
-import { QuoteDialog } from "@/components/site/QuoteDialog";
-import { TrustStrip } from "@/components/site/TrustStrip";
-import { Philosophy } from "@/components/site/Philosophy";
-import { SignatureMarquee } from "@/components/site/SignatureMarquee";
+import { useState, FormEvent, ReactNode } from "react";
+import { z } from "zod";
+
+import hero from "@/assets/hero-cascata.jpg";
+import substructure from "@/assets/substructure.jpg";
+import roofing from "@/assets/roofing.jpg";
+import wetarea from "@/assets/wetarea.jpg";
+import flooring from "@/assets/flooring.jpg";
+import injection from "@/assets/injection.jpg";
+import repair from "@/assets/repair.jpg";
+import systemsImg from "@/assets/systems.jpg";
+import mission from "@/assets/mission.jpg";
+import commitment from "@/assets/commitment.jpg";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "CASCACA — هندسة موثوقة وحلول عزل بمعايير عالمية" },
-      {
-        name: "description",
-        content:
-          "CASCACA — شركة متخصصة في الحلول الهندسية وأعمال العزل للمشاريع الصناعية والتجارية. خبرة، جودة، والتزام في كل مرحلة.",
-      },
-      { property: "og:title", content: "CASCACA — حلول هندسية وأعمال عزل" },
-      { property: "og:description", content: "شريكك الموثوق للمشاريع الصناعية والتجارية." },
-      { property: "og:image", content: heroImg },
-      { name: "twitter:image", content: heroImg },
-    ],
-  }),
   component: HomePage,
 });
 
-const services = [
-  {
-    icon: Layers,
-    title: "[الخدمة الأولى — مثال: عزل حراري]",
-    desc: "حلول عزل حراري متقدمة ترفع كفاءة الطاقة وتحمي المنشآت من تقلبات درجات الحرارة بمواد معتمدة.",
-  },
-  {
-    icon: Wrench,
-    title: "[الخدمة الثانية — مثال: عزل مائي]",
-    desc: "أنظمة عزل مائي موثوقة لحماية الأسطح والقواعد الخرسانية من التسرب والرطوبة على المدى الطويل.",
-  },
-  {
-    icon: Building2,
-    title: "[الخدمة الثالثة — مثال: حلول هندسية]",
-    desc: "استشارات وتنفيذ هندسي للمشاريع الصناعية والتجارية بفريق متخصص ومعدات حديثة.",
-  },
-];
-
-const benefits = [
-  { icon: ShieldCheck, title: "تنفيذ بمعايير دقيقة", desc: "نعتمد مواصفات تنفيذ موثّقة، ونتابع كل مرحلة لضمان نتيجة مطابقة." },
-  { icon: Award, title: "خبرة هندسية متخصصة", desc: "كوادر مؤهلة في العزل والمشاريع الصناعية، تتعامل مع التحديات بكفاءة." },
-  { icon: Users, title: "متابعة بعد التسليم", desc: "نبقى على تواصل بعد انتهاء العمل لضمان الأداء على المدى الطويل." },
-  { icon: Clock, title: "التزام بالمواعيد", desc: "خطة زمنية واضحة منذ اليوم الأول، وتسليم في الوقت المتفق عليه." },
-];
-
-const projects: Project[] = [
-  { img: p1, title: "[اسم المشروع الأول]", category: "عزل حراري", year: "[٢٠٢٤]" },
-  { img: p2, title: "[اسم المشروع الثاني]", category: "عزل مائي", year: "[٢٠٢٤]" },
-  { img: p3, title: "[اسم المشروع الثالث]", category: "حلول هندسية", year: "[٢٠٢٣]" },
-  { img: p4, title: "[اسم المشروع الرابع]", category: "عزل حراري", year: "[٢٠٢٣]" },
-  { img: p2, title: "[اسم المشروع الخامس]", category: "حلول هندسية", year: "[٢٠٢٣]" },
-  { img: p1, title: "[اسم المشروع السادس]", category: "عزل مائي", year: "[٢٠٢٢]" },
-];
-
 function HomePage() {
+  const { t, lang, dir } = useT();
+  const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
+
   return (
-    <>
-      {/* HERO */}
-      <section className="relative min-h-[94vh] flex items-center overflow-hidden bg-brand-deep vignette">
-        <div className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt="منشأة صناعية متخصصة في أعمال العزل"
-            className="h-full w-full object-cover opacity-35"
-            width={1920}
-            height={1280}
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-brand-deep via-brand-deep/85 to-brand-deep/30" />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-deep/40 via-transparent to-brand-deep" />
-          <div className="absolute inset-0 grid-pattern opacity-50" />
-          <div className="absolute -top-32 -end-32 w-[34rem] h-[34rem] rounded-full bg-accent-amber/15 blur-3xl" />
+    <div id="home" className="lang-fade" key={lang}>
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="relative min-h-[100svh] flex items-center overflow-hidden pt-20">
+        <img
+          src={hero}
+          alt={t("hero.title")}
+          className="absolute inset-0 h-full w-full object-cover"
+          width={1920}
+          height={1080}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.2_0.04_260/0.85)] via-[oklch(0.25_0.05_260/0.65)] to-[oklch(0.15_0.03_260/0.95)]" />
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-20 grid lg:grid-cols-12 gap-8 items-center w-full">
+          <div className="lg:col-span-8 text-white">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 backdrop-blur px-4 py-1.5 text-xs font-semibold tracking-[0.25em] uppercase mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+              {t("hero.tagline")}
+            </span>
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.05] text-balance">
+              {t("hero.title")}
+            </h1>
+            <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/85 leading-relaxed">
+              {t("hero.sub")}
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={waLink(t("wa.general"))}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold text-white shadow-glow hover:brightness-110 transition"
+              >
+                {t("cta.startFull")}
+                <Arrow className="h-4 w-4" />
+              </a>
+              <a
+                href="#services"
+                className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 backdrop-blur px-6 py-3.5 text-sm font-bold text-white hover:bg-white/10 transition"
+              >
+                {t("cta.explore")}
+              </a>
+            </div>
+
+            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+              {[t("hero.badge1"), t("hero.badge2"), t("hero.badge3"), t("hero.badge4")].map((b, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-2 rounded-lg border border-white/15 bg-white/5 backdrop-blur px-3 py-2.5"
+                >
+                  <ShieldCheck className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                  <span className="text-xs font-semibold leading-snug">{b}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-32 w-full">
-          <div className="max-w-3xl">
-            <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-accent-amber/40 bg-accent-amber/10 px-4 py-1.5 text-xs font-bold text-accent-amber tracking-[0.25em]">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-amber animate-pulse" />
-                CASCACA · هندسة وعزل
-              </span>
-            </Reveal>
+      {/* ── ABOUT ────────────────────────────────────────────── */}
+      <Section id="about">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <Eyebrow>{t("about.eyebrow")}</Eyebrow>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6">
+              {t("about.title")}
+            </h2>
+            <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
+              <p>{t("about.p1")}</p>
+              <p>{t("about.p2")}</p>
+              <p>{t("about.p3")}</p>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute -inset-6 bg-gradient-brand opacity-10 rounded-2xl blur-2xl" />
+            <img
+              src={systemsImg}
+              alt={t("sys.title")}
+              loading="lazy"
+              className="relative rounded-2xl shadow-elegant w-full h-auto object-cover aspect-[4/3]"
+              width={1280}
+              height={960}
+            />
+          </div>
+        </div>
+      </Section>
 
-            <Reveal delay={120}>
-              <h1 className="mt-6 font-display text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] text-balance tracking-tight">
-                نَبني عزلاً يدوم،
-                <br />
-                <span className="text-accent-amber">طبقةً</span> فوق طبقة.
-              </h1>
-            </Reveal>
+      {/* ── MISSION & VISION ─────────────────────────────────── */}
+      <Section id="mission-vision" className="bg-[color:var(--brand-soft)]">
+        <div className="text-center mb-12">
+          <Eyebrow center>{t("mv.eyebrow")}</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+            {t("vision.title")} &amp; {t("mission.title")}
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          <Card>
+            <Award className="h-10 w-10 text-primary mb-4" />
+            <h3 className="font-display text-2xl font-black text-foreground mb-3" id="vision">
+              {t("vision.title")}
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">{t("vision.body")}</p>
+          </Card>
+          <Card>
+            <ShieldCheck className="h-10 w-10 text-primary mb-4" />
+            <h3 className="font-display text-2xl font-black text-foreground mb-3" id="mission">
+              {t("mission.title")}
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">{t("mission.body")}</p>
+          </Card>
+        </div>
+        <div className="mt-12 relative rounded-2xl overflow-hidden shadow-elegant">
+          <img src={mission} alt="" loading="lazy" className="w-full h-64 sm:h-80 object-cover" width={1280} height={960} />
+        </div>
+      </Section>
 
-            <Reveal delay={220}>
-              <p className="mt-7 text-lg md:text-xl text-white/75 leading-relaxed max-w-2xl text-balance">
-                نُصمّم الحل قبل أن نُنفّذه. حلول عزل وخدمات هندسية للمشاريع الصناعية والتجارية،
-                بفريق يُحسن قراءة الموقع، ويلتزم بما يقوله.
-              </p>
-            </Reveal>
+      {/* ── WHY CHOOSE ───────────────────────────────────────── */}
+      <Section id="why">
+        <div className="text-center mb-12">
+          <Eyebrow center>{t("why.eyebrow")}</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+            {t("why.title")}
+          </h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { i: Layers, t: t("why.1.t"), b: t("why.1.b") },
+            { i: HardHat, t: t("why.2.t"), b: t("why.2.b") },
+            { i: Clock, t: t("why.3.t"), b: t("why.3.b") },
+            { i: BadgeDollarSign, t: t("why.4.t"), b: t("why.4.b") },
+            { i: Award, t: t("why.5.t"), b: t("why.5.b") },
+          ].map((c, i) => (
+            <div
+              key={i}
+              className="group rounded-xl border border-border bg-card p-6 hover:shadow-card-soft hover:border-primary/40 transition-all"
+            >
+              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition">
+                <c.i className="h-6 w-6 text-primary group-hover:text-white transition" />
+              </div>
+              <h3 className="font-display text-lg font-black text-foreground mb-2">{c.t}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{c.b}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
-            <Reveal delay={320}>
-              <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                <QuoteDialog
-                  trigger={
-                    <button className="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-amber px-7 py-4 text-sm font-bold text-brand-deep hover:brightness-110 transition shadow-glow">
-                      اطلب عرض سعر الآن
-                      <ArrowLeft className="h-4 w-4" />
-                    </button>
-                  }
+      {/* ── SPECIALIZED SYSTEMS ──────────────────────────────── */}
+      <Section id="systems" className="bg-[color:var(--brand-deep)] text-white relative overflow-hidden">
+        <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
+        <div className="relative">
+          <div className="text-center mb-12">
+            <Eyebrow center light>
+              {t("sys.eyebrow")}
+            </Eyebrow>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">
+              {t("sys.title")}
+            </h2>
+            <p className="max-w-2xl mx-auto text-white/70">{t("sys.desc")}</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {["sys.1", "sys.2", "sys.3", "sys.4", "sys.5", "sys.6", "sys.7"].map((k) => (
+              <div
+                key={k}
+                className="group rounded-lg border border-white/15 bg-white/5 backdrop-blur p-5 hover:bg-white/10 hover:border-primary/50 transition"
+              >
+                <CheckCircle2 className="h-6 w-6 text-primary mb-3" />
+                <h3 className="font-display text-base font-bold text-white leading-snug">{t(k)}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* ── CORE SERVICES ────────────────────────────────────── */}
+      <Section id="services">
+        <div className="text-center mb-12">
+          <Eyebrow center>{t("svc.eyebrow")}</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+            {t("svc.title")}
+          </h2>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { img: substructure, icon: Droplets, t: t("svc.a.t"), b: t("svc.a.b") },
+            { img: roofing, icon: Building2, t: t("svc.b.t"), b: t("svc.b.b") },
+            { img: wetarea, icon: Bath, t: t("svc.c.t"), b: t("svc.c.b") },
+            { img: injection, icon: Syringe, t: t("svc.d.t"), b: t("svc.d.b") },
+            { img: repair, icon: Wrench, t: t("svc.e.t"), b: t("svc.e.b") },
+            { img: flooring, icon: Square, t: t("svc.f.t"), b: t("svc.f.b") },
+          ].map((s, i) => (
+            <article
+              key={i}
+              className="group rounded-2xl overflow-hidden bg-card border border-border hover:shadow-elegant hover:border-primary/40 transition-all flex flex-col"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
+                <img
+                  src={s.img}
+                  alt={s.t}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  width={1280}
+                  height={960}
                 />
+                <div className="absolute top-3 start-3 h-10 w-10 rounded-lg bg-white/95 backdrop-blur flex items-center justify-center">
+                  <s.icon className="h-5 w-5 text-primary" />
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="font-display text-xl font-black text-foreground mb-2">{s.t}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{s.b}</p>
                 <a
-                  href="https://wa.me/9665000000000"
+                  href={waLink(buildServiceWaMessage(lang, s.t))}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-md border border-white/25 bg-white/5 backdrop-blur px-7 py-4 text-sm font-bold text-white hover:bg-white/10 transition"
+                  className="inline-flex items-center justify-center gap-2 rounded-md bg-secondary px-4 py-2.5 text-sm font-bold text-foreground hover:bg-primary hover:text-white transition"
                 >
-                  تواصل مع مهندس
+                  <MessageCircle className="h-4 w-4" />
+                  {t("cta.askService")}
                 </a>
               </div>
-            </Reveal>
+            </article>
+          ))}
+        </div>
+      </Section>
 
-            {/* Trust hint pill */}
-            <Reveal delay={420}>
-              <div className="mt-12 inline-flex flex-wrap items-center gap-x-6 gap-y-3 rounded-full border border-white/15 bg-white/5 backdrop-blur px-6 py-3">
-                {["دقة", "طبقة", "استمرار"].map((w, i) => (
-                  <span key={w} className="flex items-center gap-2 text-sm font-bold text-white/85">
-                    {i > 0 && <span className="h-1 w-1 rounded-full bg-accent-amber/70" />}
-                    <Sparkles className="h-3.5 w-3.5 text-accent-amber" />
-                    {w}
-                  </span>
-                ))}
+      {/* ── PORTFOLIO ────────────────────────────────────────── */}
+      <Section id="portfolio" className="bg-[color:var(--brand-soft)]">
+        <div className="text-center mb-12">
+          <Eyebrow center>{t("pf.eyebrow")}</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+            {t("pf.title")}
+          </h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { img: substructure, t: t("pf.1") },
+            { img: roofing, t: t("pf.2") },
+            { img: wetarea, t: t("pf.3") },
+            { img: systemsImg, t: t("pf.4") },
+            { img: commitment, t: t("pf.5") },
+            { img: mission, t: t("pf.6") },
+          ].map((p, i) => (
+            <div key={i} className="group relative rounded-2xl overflow-hidden shadow-card-soft aspect-[4/3]">
+              <img
+                src={p.img}
+                alt={p.t}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                width={1280}
+                height={960}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <h3 className="font-display text-lg font-black text-white">{p.t}</h3>
               </div>
-            </Reveal>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 inset-x-0 hidden md:flex justify-center">
-          <div className="h-10 w-6 rounded-full border-2 border-white/30 flex items-start justify-center p-1">
-            <span className="h-2 w-1 rounded-full bg-accent-amber animate-bounce" />
-          </div>
-        </div>
-      </section>
-
-      {/* CLIENTS */}
-      <Clients />
-
-      {/* SIGNATURE — repeating brand phrases */}
-      <SignatureMarquee />
-
-      {/* TRUST STRIP — practical commitments */}
-      <TrustStrip />
-
-      {/* ABOUT */}
-      <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-pattern opacity-50 pointer-events-none" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-10 grid gap-14 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <div>
-              <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.35em] uppercase text-brand mb-4">
-                <span className="h-px w-8 bg-brand/40" />
-                هويّتنا
-              </span>
-              <h2 className="font-display text-3xl md:text-5xl font-black text-foreground leading-[1.15] text-balance">
-                لسنا الأسرع. نحن الأدقّ.
-              </h2>
-              <p className="mt-6 text-muted-foreground leading-loose text-lg">
-                CASCACA شركة هندسية متخصصة في حلول العزل للقطاعين الصناعي والتجاري.
-                نُؤمن أن العمل الذي يبقى لسنوات يبدأ بقرار صحيح في اليوم الأول — لا بأدوات
-                باهظة في اليوم الأخير.
-              </p>
-              <ul className="mt-8 space-y-4">
-                {[
-                  "دراسة هندسية تسبق كل تنفيذ",
-                  "مواد معتمدة من موردين موثوقين",
-                  "حلٌّ يُصمَّم لموقعك، لا قالب جاهز",
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand/10">
-                      <CheckCircle2 className="h-4 w-4 text-brand" />
-                    </span>
-                    <span className="text-foreground/85">{t}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                to="/about"
-                className="mt-10 inline-flex items-center gap-2 text-brand font-bold hover:gap-3 transition-all"
-              >
-                اقرأ عن منهجنا
-                <ArrowLeft className="h-4 w-4" />
-              </Link>
             </div>
-          </Reveal>
+          ))}
+        </div>
+      </Section>
 
-          <Reveal delay={150}>
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-elegant">
-                <img
-                  src={p1}
-                  alt="أعمال عزل احترافية"
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                  width={1024}
-                  height={768}
-                />
-              </div>
-              {/* Floating amber badge */}
-              <div className="absolute -top-6 -end-6 rounded-2xl bg-gradient-amber text-brand-deep p-5 shadow-glow hidden md:block corner-ticks">
-                <div className="font-display text-3xl font-black leading-none">طبقة</div>
-                <div className="text-xs font-bold mt-1 opacity-80">فوق طبقة</div>
-              </div>
-              <div className="absolute -bottom-8 -start-8 bg-card border border-border rounded-2xl p-6 shadow-elegant max-w-xs hidden md:block">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="h-12 w-12 rounded-xl bg-gradient-brand flex items-center justify-center">
-                    <Shield className="h-6 w-6 text-brand-foreground" />
-                  </div>
-                  <div>
-                    <div className="font-display font-black text-lg">عملٌ يبقى</div>
-                    <div className="text-xs text-muted-foreground">بعد أن نُغادر الموقع</div>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  العزل الجيّد لا يُرى — لكنه يُحسّ كل صيف وكل شتاء، لسنوات.
+      {/* ── COMMITMENT ───────────────────────────────────────── */}
+      <Section id="commitment">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="relative order-2 lg:order-1">
+            <div className="absolute -inset-6 bg-gradient-brand opacity-10 rounded-2xl blur-2xl" />
+            <img
+              src={commitment}
+              alt={t("com.title")}
+              loading="lazy"
+              className="relative rounded-2xl shadow-elegant w-full h-auto object-cover aspect-[4/3]"
+              width={1280}
+              height={960}
+            />
+          </div>
+          <div className="order-1 lg:order-2">
+            <Eyebrow>{t("com.eyebrow")}</Eyebrow>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6">
+              {t("com.title")}
+            </h2>
+            <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
+              <p>{t("com.p1")}</p>
+              <p>{t("com.p2")}</p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* ── ALLIANCES ────────────────────────────────────────── */}
+      <Section id="alliances" className="bg-[color:var(--brand-soft)]">
+        <div className="text-center mb-12">
+          <Eyebrow center>{t("al.eyebrow")}</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-5">
+            {t("al.title")}
+          </h2>
+          <p className="max-w-3xl mx-auto text-muted-foreground leading-relaxed">{t("al.body")}</p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {["SIKA", "FOSROC", "BASF", "MAPEI", "HENKEL", "POLYBIT"].map((p) => (
+            <div
+              key={p}
+              className="aspect-[3/2] rounded-xl bg-white border border-border shadow-card-soft flex items-center justify-center font-display font-black text-foreground/80 tracking-widest text-sm sm:text-base hover:shadow-elegant hover:text-primary transition"
+            >
+              {p}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ── FINAL CTA ────────────────────────────────────────── */}
+      <section className="py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-hero grid-pattern p-10 md:p-16 shadow-elegant">
+            <div className="absolute -top-32 -start-32 w-[26rem] h-[26rem] rounded-full bg-primary/30 blur-3xl pointer-events-none" />
+            <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <h3 className="font-display text-3xl md:text-5xl font-black text-white text-balance leading-[1.15] max-w-2xl">
+                  {t("fcta.title")}
+                </h3>
+                <p className="mt-5 text-white/80 max-w-2xl text-base md:text-lg leading-relaxed">
+                  {t("fcta.sub")}
                 </p>
               </div>
+              <a
+                href={waLink(t("wa.general"))}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-7 py-4 text-sm font-bold text-[color:var(--brand-deep)] hover:brightness-95 transition shadow-glow whitespace-nowrap"
+              >
+                <MessageCircle className="h-5 w-5" />
+                {t("cta.startFull")}
+              </a>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="py-24 bg-secondary/40 relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-pattern opacity-60 pointer-events-none" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-          <SectionHeading
-            eyebrow="ما نُتقنه"
-            title="ثلاث طبقات من الحماية، خبرة واحدة."
-            description="خدماتنا الأساسية مبنية على فهم عميق لطبيعة الموقع، ومواد تليق بسنوات التشغيل القادمة."
-          />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 110}>
-                <div className="group relative h-full bg-card border border-border rounded-2xl p-8 hover:shadow-elegant hover:-translate-y-1.5 hover:border-brand/30 transition-all duration-500 overflow-hidden">
-                  {/* Hover accent corner */}
-                  <div className="absolute -top-16 -end-16 h-40 w-40 rounded-full bg-gradient-amber opacity-0 group-hover:opacity-15 blur-2xl transition-opacity duration-500" />
-                  <div className="relative">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="h-14 w-14 rounded-xl bg-gradient-brand flex items-center justify-center group-hover:shadow-glow transition">
-                        <s.icon className="h-7 w-7 text-brand-foreground" strokeWidth={1.75} />
-                      </div>
-                      <span className="font-display text-xs font-black text-accent-amber tracking-[0.3em]">
-                        / 0{i + 1}
-                      </span>
-                    </div>
-                    <h3 className="font-display text-xl font-black text-foreground mb-3 group-hover:text-brand transition">
-                      {s.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">{s.desc}</p>
-                    <Link
-                      to="/services"
-                      className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand hover:gap-3 transition-all"
-                    >
-                      تفاصيل الخدمة <ArrowLeft className="h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* PHILOSOPHY — brand manifesto */}
-      <Philosophy />
-
-      {/* PROJECTS */}
-      <section className="py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <SectionHeading
-            eyebrow="عملٌ على الأرض"
-            title="مشاريع تُحدّث عنّا قبل أن نتحدث."
-            description="مختارات من تنفيذنا — كل مشروع له ظروفه، وحلّه الذي صُمّم له تحديداً."
-          />
-          <ProjectsGrid
-            projects={projects}
-            categories={["الكل", "عزل حراري", "عزل مائي", "حلول هندسية"]}
-          />
-          <div className="text-center mt-14">
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 rounded-md border-2 border-brand bg-transparent px-7 py-3.5 text-sm font-bold text-brand hover:bg-brand hover:text-brand-foreground transition"
+      {/* ── CONTACT ──────────────────────────────────────────── */}
+      <Section id="contact">
+        <div className="text-center mb-12">
+          <Eyebrow center>{t("ct.eyebrow")}</Eyebrow>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+            {t("ct.title")}
+          </h2>
+        </div>
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+          <div className="lg:col-span-2 space-y-4">
+            <a
+              href={waLink(t("wa.general"))}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 hover:border-primary hover:shadow-card-soft transition"
             >
-              تصفّح كامل الأعمال
-              <ArrowLeft className="h-4 w-4" />
-            </Link>
+              <div className="h-11 w-11 rounded-lg bg-[#25D366]/15 flex items-center justify-center shrink-0">
+                <MessageCircle className="h-5 w-5 text-[#25D366]" />
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                  {t("ct.whatsapp")}
+                </p>
+                <p dir="ltr" className="font-display text-lg font-black text-foreground">{WA_DISPLAY}</p>
+              </div>
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 hover:border-primary hover:shadow-card-soft transition"
+            >
+              <div className="h-11 w-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Mail className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                  {t("ct.email")}
+                </p>
+                <p className="text-base font-bold text-foreground break-all">{EMAIL}</p>
+              </div>
+            </a>
+            <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-5">
+              <div className="h-11 w-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <MapPin className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
+                  {t("ct.location")}
+                </p>
+                <p className="text-sm text-foreground leading-relaxed">{t("ct.addr")}</p>
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-3">
+            <ContactForm />
           </div>
         </div>
-      </section>
+      </Section>
+    </div>
+  );
+}
 
-      {/* WHY US */}
-      <section className="py-28 bg-gradient-hero grid-pattern relative overflow-hidden">
-        <div className="absolute top-0 end-0 w-[28rem] h-[28rem] rounded-full bg-accent-amber/10 blur-3xl" />
-        <div className="absolute bottom-0 start-0 w-[24rem] h-[24rem] rounded-full bg-brand/40 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
-          <SectionHeading
-            invert
-            eyebrow="لماذا CASCACA"
-            title="لأن مشروعك يستحق قراراً صحيحاً، لا حلاً سريعاً."
-            description="أربع التزامات نتعامل بها مع كل مشروع — لا شعارات، بل طريقة عمل."
-          />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map((b, i) => (
-              <Reveal key={b.title} delay={i * 90}>
-                <div className="group relative h-full bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 hover:bg-white/10 hover:border-accent-amber/40 transition-all duration-500">
-                  <div className="h-12 w-12 rounded-xl bg-accent-amber/15 border border-accent-amber/30 flex items-center justify-center mb-5 group-hover:bg-accent-amber group-hover:border-accent-amber transition">
-                    <b.icon className="h-6 w-6 text-accent-amber group-hover:text-brand-deep transition" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="font-display text-lg font-black text-white mb-2">{b.title}</h3>
-                  <p className="text-white/65 text-sm leading-relaxed">{b.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+/* ── helpers ─────────────────────────────────────────────────── */
 
-      {/* PROCESS TIMELINE */}
-      <ProcessTimeline />
+function Section({
+  id,
+  children,
+  className = "",
+}: {
+  id?: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <section id={id} className={`py-20 lg:py-28 ${className}`}>
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">{children}</div>
+    </section>
+  );
+}
 
-      {/* TESTIMONIALS */}
-      <Testimonials />
+function Eyebrow({
+  children,
+  center,
+  light,
+}: {
+  children: ReactNode;
+  center?: boolean;
+  light?: boolean;
+}) {
+  return (
+    <div
+      className={`inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.3em] uppercase mb-4 ${
+        light ? "text-primary" : "text-primary"
+      } ${center ? "" : ""}`}
+      style={center ? { display: "inline-flex" } : undefined}
+    >
+      <span className="h-px w-8 bg-primary/60" />
+      {children}
+    </div>
+  );
+}
 
-      {/* SIGNATURE — inverted before CTA */}
-      <SignatureMarquee invert />
+function Card({ children }: { children: ReactNode }) {
+  return (
+    <div className="rounded-2xl border border-border bg-card p-8 shadow-card-soft hover:shadow-elegant hover:border-primary/30 transition-all h-full">
+      {children}
+    </div>
+  );
+}
 
-      {/* FINAL CTA */}
-      <CTASection />
-    </>
+function ContactForm() {
+  const { t, lang } = useT();
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [sent, setSent] = useState(false);
+
+  const schema = z.object({
+    name: z.string().trim().min(2, t("form.required")).max(100),
+    phone: z
+      .string()
+      .trim()
+      .min(6, t("form.invalidPhone"))
+      .max(25)
+      .regex(/^[+\d\s\-()]+$/, t("form.invalidPhone")),
+    email: z
+      .union([z.string().trim().email(t("form.invalidEmail")).max(150), z.literal("")])
+      .optional(),
+    description: z.string().trim().max(1000).optional(),
+    location: z.string().trim().max(200).optional(),
+    service: z.string().trim().max(120).optional(),
+    company: z.string().max(0).optional(), // honeypot
+  });
+
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const parsed = schema.safeParse({
+      name: fd.get("name") ?? "",
+      phone: fd.get("phone") ?? "",
+      email: fd.get("email") ?? "",
+      description: fd.get("description") ?? "",
+      location: fd.get("location") ?? "",
+      service: fd.get("service") ?? "",
+      company: fd.get("company") ?? "",
+    });
+    if (!parsed.success) {
+      const errs: Record<string, string> = {};
+      for (const issue of parsed.error.issues) errs[String(issue.path[0])] = issue.message;
+      setErrors(errs);
+      return;
+    }
+    if (parsed.data.company) return; // honeypot triggered, silently drop
+    setErrors({});
+    setSent(true);
+    e.currentTarget.reset();
+    setTimeout(() => setSent(false), 5000);
+  }
+
+  if (sent) {
+    return (
+      <div className="rounded-2xl border border-primary/30 bg-primary/5 p-10 text-center">
+        <CheckCircle2 className="h-12 w-12 text-primary mx-auto mb-4" />
+        <p className="text-lg font-bold text-foreground">{t("form.success")}</p>
+      </div>
+    );
+  }
+
+  return (
+    <form
+      onSubmit={onSubmit}
+      noValidate
+      className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-card-soft space-y-4"
+    >
+      <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
+      <div className="grid sm:grid-cols-2 gap-4">
+        <Field label={t("form.name")} name="name" required error={errors.name} />
+        <Field label={t("form.phone")} name="phone" type="tel" required dir="ltr" error={errors.phone} />
+      </div>
+      <Field label={t("form.email")} name="email" type="email" dir="ltr" error={errors.email} />
+      <Field label={t("form.svc")} name="service" />
+      <Field label={t("form.loc")} name="location" />
+      <div>
+        <label className="block text-xs font-bold text-foreground mb-1.5">{t("form.desc")}</label>
+        <textarea
+          name="description"
+          rows={4}
+          className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition resize-none"
+        />
+      </div>
+      <button
+        type="submit"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold text-white hover:brightness-110 transition shadow-glow"
+      >
+        <Send className="h-4 w-4" />
+        {t("form.send")}
+      </button>
+      <p className="text-[11px] text-muted-foreground text-center">
+        <span dir="ltr">{lang === "ar" ? "" : "+971 55 530 9240"}</span>
+      </p>
+    </form>
+  );
+}
+
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+  dir,
+  error,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+  dir?: "ltr" | "rtl";
+  error?: string;
+}) {
+  return (
+    <div>
+      <label className="block text-xs font-bold text-foreground mb-1.5">
+        {label} {required && <span className="text-destructive">*</span>}
+      </label>
+      <input
+        name={name}
+        type={type}
+        dir={dir}
+        className={`w-full rounded-md border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition ${
+          error ? "border-destructive" : "border-input focus:border-primary"
+        }`}
+      />
+      {error && <p className="mt-1 text-xs text-destructive">{error}</p>}
+    </div>
   );
 }
