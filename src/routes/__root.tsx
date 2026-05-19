@@ -47,8 +47,12 @@ export const Route = createRootRoute({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "CASCATA",
+          alternateName: "CASCATA Waterproofing",
           description:
             "Certified waterproofing, thermal insulation, concrete repair, and structural protection services across the UAE.",
+          url: "/",
+          logo: "/logo-cascata.png",
+          image: "/logo-cascata.png",
           telephone: "+971555309240",
           email: "Operation@cascata.ae",
           address: {
@@ -58,8 +62,9 @@ export const Route = createRootRoute({
             addressLocality: "Abu Dhabi",
             addressCountry: "AE",
           },
-          areaServed: "AE",
+          areaServed: { "@type": "Country", name: "United Arab Emirates" },
           slogan: "Protection Builds Trust",
+          sameAs: [],
         }),
       },
     ],
