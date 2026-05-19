@@ -46,10 +46,10 @@ export function Navbar() {
         <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-16 lg:h-20 items-center gap-4 lg:gap-8 w-full">
           <a href="#home" className="flex items-center gap-2.5 group shrink-0" aria-label="CASCATA — Home">
             <div className={cn(
-              "flex items-center justify-center rounded-md p-1 transition",
-              scrolled ? "bg-white" : "bg-white/95 backdrop-blur"
+              "flex items-center justify-center rounded-xl p-1.5 transition ring-1 ring-white/20",
+              scrolled ? "bg-white ring-black/5" : "bg-white/95 backdrop-blur"
             )}>
-              <img src={logo} alt="CASCATA Waterproofing" className="h-10 w-10 object-contain" width={40} height={40} />
+              <img src={logo} alt="CASCATA Waterproofing" className="h-12 w-12 lg:h-14 lg:w-14 object-contain" width={56} height={56} />
             </div>
             <div className="flex flex-col leading-none">
               <span
