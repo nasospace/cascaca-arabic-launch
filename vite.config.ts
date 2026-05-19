@@ -37,7 +37,6 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({
-      autoCodeSplitting: false,
       importProtection: {
         behavior: "error",
         client: {
