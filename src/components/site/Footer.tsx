@@ -1,4 +1,5 @@
 import { useT, WA_DISPLAY, EMAIL, waLink } from "@/lib/i18n";
+import logo from "@/assets/logo-cascata.png";
 
 export function Footer() {
   const { t } = useT();
