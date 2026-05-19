@@ -55,7 +55,7 @@ function HomePage() {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.2_0.04_260/0.85)] via-[oklch(0.25_0.05_260/0.65)] to-[oklch(0.15_0.03_260/0.95)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1128]/85 via-[#1c2c54]/60 to-[#050814]/95" />
         <div className="absolute inset-0 grid-pattern opacity-30" />
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-20 grid lg:grid-cols-12 gap-8 items-center w-full">
@@ -64,7 +64,7 @@ function HomePage() {
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
               {t("hero.tagline")}
             </span>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.05] text-balance">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-balance">
               {t("hero.title")}
             </h1>
             <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/85 leading-relaxed">
@@ -76,14 +76,14 @@ function HomePage() {
                 href={waLink(t("wa.general"))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold text-white shadow-glow hover:brightness-110 transition"
+                className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold text-white shadow-glow hover:-translate-y-0.5 hover:shadow-lg hover:bg-primary/95 transition-all duration-300"
               >
                 {t("cta.startFull")}
                 <Arrow className="h-4 w-4" />
               </a>
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 backdrop-blur px-6 py-3.5 text-sm font-bold text-white hover:bg-white/10 transition"
+                className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 backdrop-blur px-6 py-3.5 text-sm font-bold text-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
               >
                 {t("cta.explore")}
               </a>
@@ -109,7 +109,7 @@ function HomePage() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <Eyebrow>{t("about.eyebrow")}</Eyebrow>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-6">
               {t("about.title")}
             </h2>
             <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
@@ -136,14 +136,14 @@ function HomePage() {
       <Section id="mission-vision" className="bg-[color:var(--brand-soft)]">
         <div className="text-center mb-12">
           <Eyebrow center>{t("mv.eyebrow")}</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
             {t("vision.title")} &amp; {t("mission.title")}
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           <Card>
             <Award className="h-10 w-10 text-primary mb-4" />
-            <h3 className="font-display text-2xl font-black text-foreground mb-3" id="vision">
+            <h3 className="font-display text-2xl font-extrabold tracking-tight text-foreground mb-3" id="vision">
               {t("vision.title")}
             </h3>
             <p className="text-muted-foreground leading-relaxed">{t("vision.body")}</p>
@@ -165,7 +165,7 @@ function HomePage() {
       <Section id="why">
         <div className="text-center mb-12">
           <Eyebrow center>{t("why.eyebrow")}</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
             {t("why.title")}
           </h2>
         </div>
@@ -179,7 +179,7 @@ function HomePage() {
           ].map((c, i) => (
             <div
               key={i}
-              className="group rounded-xl border border-border bg-card p-6 hover:shadow-card-soft hover:border-primary/40 transition-all"
+              className="group rounded-xl border border-border bg-card p-6 hover:shadow-elegant hover:border-primary/50 hover:-translate-y-1 transition-all duration-300"
             >
               <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition">
                 <c.i className="h-6 w-6 text-primary group-hover:text-white transition" />
@@ -199,7 +199,7 @@ function HomePage() {
             <Eyebrow center light>
               {t("sys.eyebrow")}
             </Eyebrow>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
               {t("sys.title")}
             </h2>
             <p className="max-w-2xl mx-auto text-white/70">{t("sys.desc")}</p>
@@ -208,7 +208,7 @@ function HomePage() {
             {["sys.1", "sys.2", "sys.3", "sys.4", "sys.5", "sys.6", "sys.7"].map((k) => (
               <div
                 key={k}
-                className="group rounded-lg border border-white/15 bg-white/5 backdrop-blur p-5 hover:bg-white/10 hover:border-primary/50 transition"
+                className="group rounded-xl border border-white/15 bg-white/5 backdrop-blur p-5 hover:bg-white/10 hover:border-primary/50 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
               >
                 <CheckCircle2 className="h-6 w-6 text-primary mb-3" />
                 <h3 className="font-display text-base font-bold text-white leading-snug">{t(k)}</h3>
@@ -222,7 +222,7 @@ function HomePage() {
       <Section id="services">
         <div className="text-center mb-12">
           <Eyebrow center>{t("svc.eyebrow")}</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
             {t("svc.title")}
           </h2>
         </div>
@@ -237,7 +237,7 @@ function HomePage() {
           ].map((s, i) => (
             <article
               key={i}
-              className="group rounded-2xl overflow-hidden bg-card border border-border hover:shadow-elegant hover:border-primary/40 transition-all flex flex-col"
+              className="group rounded-2xl overflow-hidden bg-card border border-border hover:shadow-elegant hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 flex flex-col"
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
                 <img
@@ -274,7 +274,7 @@ function HomePage() {
       <Section id="portfolio" className="bg-[color:var(--brand-soft)]">
         <div className="text-center mb-12">
           <Eyebrow center>{t("pf.eyebrow")}</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
             {t("pf.title")}
           </h2>
         </div>
@@ -321,7 +321,7 @@ function HomePage() {
           </div>
           <div className="order-1 lg:order-2">
             <Eyebrow>{t("com.eyebrow")}</Eyebrow>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-6">
               {t("com.title")}
             </h2>
             <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
@@ -336,7 +336,7 @@ function HomePage() {
       <Section id="alliances" className="bg-[color:var(--brand-soft)]">
         <div className="text-center mb-12">
           <Eyebrow center>{t("al.eyebrow")}</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-5">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-5">
             {t("al.title")}
           </h2>
           <p className="max-w-3xl mx-auto text-muted-foreground leading-relaxed">{t("al.body")}</p>
@@ -371,7 +371,7 @@ function HomePage() {
                 href={waLink(t("wa.general"))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-7 py-4 text-sm font-bold text-[color:var(--brand-deep)] hover:brightness-95 transition shadow-glow whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-7 py-4 text-sm font-bold text-[color:var(--brand-deep)] hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 whitespace-nowrap"
               >
                 <MessageCircle className="h-5 w-5" />
                 {t("cta.startFull")}
@@ -385,7 +385,7 @@ function HomePage() {
       <Section id="contact">
         <div className="text-center mb-12">
           <Eyebrow center>{t("ct.eyebrow")}</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
             {t("ct.title")}
           </h2>
         </div>
@@ -395,7 +395,7 @@ function HomePage() {
               href={waLink(t("wa.general"))}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 hover:border-primary hover:shadow-card-soft transition"
+              className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 hover:border-primary hover:shadow-elegant hover:-translate-y-1 transition-all duration-300"
             >
               <div className="h-11 w-11 rounded-lg bg-[#25D366]/15 flex items-center justify-center shrink-0">
                 <MessageCircle className="h-5 w-5 text-[#25D366]" />
@@ -409,7 +409,7 @@ function HomePage() {
             </a>
             <a
               href={`mailto:${EMAIL}`}
-              className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 hover:border-primary hover:shadow-card-soft transition"
+              className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 hover:border-primary hover:shadow-elegant hover:-translate-y-1 transition-all duration-300"
             >
               <div className="h-11 w-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                 <Mail className="h-5 w-5 text-primary" />
@@ -570,7 +570,7 @@ function ContactForm() {
       </div>
       <button
         type="submit"
-        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold text-white hover:brightness-110 transition shadow-glow"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold text-white shadow-glow hover:-translate-y-0.5 hover:shadow-lg hover:bg-primary/95 transition-all duration-300"
       >
         <Send className="h-4 w-4" />
         {t("form.send")}

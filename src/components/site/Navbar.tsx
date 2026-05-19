@@ -42,8 +42,8 @@ export function Navbar() {
           : "bg-gradient-to-b from-black/40 to-transparent"
       )}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        <div className="flex h-16 lg:h-20 items-center justify-between gap-4">
+      <div className="mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">
+        <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-16 lg:h-20 items-center gap-4 lg:gap-8 w-full">
           <a href="#home" className="flex items-center gap-2.5 group shrink-0" aria-label="CASCATA — Home">
             <div className={cn(
               "flex items-center justify-center rounded-md p-1 transition",
@@ -71,41 +71,43 @@ export function Navbar() {
             </div>
           </a>
 
-          <nav className="hidden xl:flex items-center gap-0.5">
-            {navItems.map((it) => (
-              <a
-                key={it.id}
-                href={`#${it.id}`}
-                className={cn(
-                  "px-2.5 py-2 text-[13px] font-medium rounded-md transition-colors",
-                  scrolled
-                    ? "text-foreground/75 hover:text-primary"
-                    : "text-white/85 hover:text-white"
-                )}
-              >
-                {t(it.key)}
-              </a>
-            ))}
-          </nav>
+          <div className="hidden 2xl:flex justify-center pr-4">
+            <nav className="flex items-center gap-0.5 2xl:gap-1">
+              {navItems.map((it) => (
+                <a
+                  key={it.id}
+                  href={`#${it.id}`}
+                  className={cn(
+                    "whitespace-nowrap px-2 py-2 text-[13px] font-bold tracking-tight rounded-md transition-all duration-300",
+                    scrolled
+                      ? "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                      : "text-white/90 hover:text-white hover:bg-white/10"
+                  )}
+                >
+                  {t(it.key)}
+                </a>
+              ))}
+            </nav>
+          </div>
 
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden 2xl:flex items-center justify-end gap-3 shrink-0">
             <button
               onClick={toggle}
               aria-label={switchAria}
               className={cn(
-                "h-10 w-10 inline-flex items-center justify-center rounded-md border text-sm font-bold transition",
+                "h-10 w-10 shrink-0 inline-flex items-center justify-center rounded-md border text-sm font-bold transition-all duration-300 hover:-translate-y-0.5",
                 scrolled
-                  ? "border-border text-foreground hover:bg-secondary"
-                  : "border-white/30 text-white hover:bg-white/10"
+                  ? "border-border text-foreground hover:bg-secondary hover:shadow-sm"
+                  : "border-white/30 text-white hover:bg-white/10 hover:border-white/50"
               )}
             >
-              <span className={lang === "en" ? "font-arabic" : "font-display"}>{switchLabel}</span>
+              <span className={cn("leading-none flex items-center justify-center", lang === "en" ? "font-arabic mt-1" : "font-display")}>{switchLabel}</span>
             </button>
             <a
               href={waLink(t("wa.general"))}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-bold text-white shadow-glow hover:brightness-110 transition"
+              className="shrink-0 inline-flex items-center gap-2 rounded-md bg-primary px-4 lg:px-5 py-2.5 text-sm font-bold text-white shadow-glow hover:-translate-y-0.5 hover:shadow-lg hover:bg-primary/95 transition-all duration-300"
             >
               <MessageCircle className="h-4 w-4" />
               {t("cta.start")}
@@ -114,7 +116,7 @@ export function Navbar() {
 
           <button
             className={cn(
-              "lg:hidden inline-flex items-center justify-center p-2 rounded-md",
+              "2xl:hidden col-start-2 ml-auto inline-flex items-center justify-center p-2 rounded-md",
               scrolled ? "text-foreground" : "text-white"
             )}
             aria-label="Menu"
@@ -125,7 +127,7 @@ export function Navbar() {
         </div>
 
         {open && (
-          <div className="lg:hidden border-t border-border bg-white/98 backdrop-blur-xl pb-4 -mx-4 sm:-mx-6 px-4 sm:px-6">
+          <div className="2xl:hidden border-t border-border bg-white/98 backdrop-blur-xl pb-4 -mx-4 sm:-mx-6 px-4 sm:px-6">
             <nav className="flex flex-col gap-1 pt-3">
               {navItems.map((it) => (
                 <a
