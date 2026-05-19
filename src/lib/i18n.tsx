@@ -264,6 +264,16 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (typeof document !== "undefined") {
       document.documentElement.lang = lang;
       document.documentElement.dir = dir;
+      document.title =
+        lang === "ar"
+          ? "CASCATA | عزل مائي وحراري وحماية المنشآت في الإمارات"
+          : "CASCATA | Waterproofing & Structural Protection Services in UAE";
+      const desc =
+        lang === "ar"
+          ? "CASCATA تقدم خدمات العزل المائي والحراري، ترميم الخرسانة، الحقن، وأنظمة الحماية المعتمدة للمشاريع السكنية والتجارية والصناعية في الإمارات."
+          : "CASCATA provides certified waterproofing, thermal insulation, concrete repair, injection, flooring, tank lining, and structural protection systems across the UAE.";
+      const m = document.querySelector('meta[name="description"]');
+      if (m) m.setAttribute("content", desc);
     }
     try {
       localStorage.setItem("cascata.lang", lang);

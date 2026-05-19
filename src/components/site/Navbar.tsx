@@ -1,7 +1,8 @@
-import { useT, WA_NUMBER, waLink } from "@/lib/i18n";
+import { useT, waLink } from "@/lib/i18n";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo-cascata.png";
 
 const navItems = [
   { id: "home", key: "nav.home" },
@@ -43,9 +44,12 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
         <div className="flex h-16 lg:h-20 items-center justify-between gap-4">
-          <a href="#home" className="flex items-center gap-2 group shrink-0">
-            <div className="flex h-10 w-10 items-center justify-center rounded-md bg-gradient-brand shadow-glow">
-              <span className="font-display text-base font-black text-white">C</span>
+          <a href="#home" className="flex items-center gap-2.5 group shrink-0" aria-label="CASCATA — Home">
+            <div className={cn(
+              "flex items-center justify-center rounded-md p-1 transition",
+              scrolled ? "bg-white" : "bg-white/95 backdrop-blur"
+            )}>
+              <img src={logo} alt="CASCATA Waterproofing" className="h-10 w-10 object-contain" width={40} height={40} />
             </div>
             <div className="flex flex-col leading-none">
               <span
