@@ -397,11 +397,12 @@ function HomePage() {
       {/* ── FINAL CTA ────────────────────────────────────────── */}
       <section className="py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-hero grid-pattern p-10 md:p-16 shadow-elegant">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0a1128] to-[#1c2c54] border border-white/5 p-10 md:p-16 shadow-2xl">
+            <div className="absolute inset-0 grid-pattern opacity-20" />
             <div className="absolute -top-32 -start-32 w-[26rem] h-[26rem] rounded-full bg-primary/30 blur-3xl pointer-events-none" />
             <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <h3 className="font-display text-3xl md:text-5xl font-black text-white text-balance leading-[1.15] max-w-2xl">
+                <h3 className="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-white text-balance leading-[1.15] max-w-2xl">
                   {t("fcta.title")}
                 </h3>
                 <p className="mt-5 text-white/80 max-w-2xl text-base md:text-lg leading-relaxed">
@@ -412,7 +413,7 @@ function HomePage() {
                 href={waLink(t("wa.general"))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-7 py-4 text-sm font-bold text-[color:var(--brand-deep)] hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-7 py-4 text-sm font-bold text-[#0a1128] shadow-glow hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 whitespace-nowrap"
               >
                 <MessageCircle className="h-5 w-5" />
                 {t("cta.startFull")}
