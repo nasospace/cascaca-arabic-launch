@@ -17,7 +17,7 @@ export const Route = createRootRoute({
         content:
           "CASCATA provides certified waterproofing, thermal insulation, concrete repair, injection, flooring, tank lining, and structural protection systems across the UAE.",
       },
-      { property: "og:title", content: "CASCATA | Structural Protection & Waterproofing UAE" },
+      { property: "og:title", content: "CASCATA | Waterproofing & Structural Protection Services in UAE" },
       {
         property: "og:description",
         content:
@@ -28,6 +28,12 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#637eb5" },
       { name: "keywords", content: "Waterproofing UAE, Structural protection UAE, Roof waterproofing, Thermal insulation UAE, Concrete repair, Concrete injection, Tank lining UAE, Epoxy flooring UAE, عزل مائي, عزل حراري, ترميم الخرسانة" },
+      { name: "twitter:title", content: "CASCATA | Waterproofing & Structural Protection Services in UAE" },
+      { name: "description", content: "Creates a modern, professional, Arabic (RTL) corporate website for an engineering company." },
+      { property: "og:description", content: "Creates a modern, professional, Arabic (RTL) corporate website for an engineering company." },
+      { name: "twitter:description", content: "Creates a modern, professional, Arabic (RTL) corporate website for an engineering company." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fa3aa5a3-4bde-4085-bb10-9bf3069058f3/id-preview-63811a4b--e851a7c7-0d85-4cb4-8088-0d36736930dd.lovable.app-1779296735764.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/fa3aa5a3-4bde-4085-bb10-9bf3069058f3/id-preview-63811a4b--e851a7c7-0d85-4cb4-8088-0d36736930dd.lovable.app-1779296735764.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
