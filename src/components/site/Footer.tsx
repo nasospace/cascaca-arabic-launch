@@ -8,8 +8,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-14 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white p-1">
-              <img src={logo} alt="CASCATA" className="h-full w-full object-contain" width={48} height={48} />
+            <div className="flex h-12 items-center justify-center rounded-xl bg-white/[0.04] border border-white/10 px-2.5 py-1.5 shadow-sm transition-all duration-300">
+              <img src={logo} alt="CASCATA" className="h-full w-auto object-contain" />
             </div>
             <span className="font-display text-xl font-extrabold tracking-[0.15em] text-white">CASCATA</span>
           </div>

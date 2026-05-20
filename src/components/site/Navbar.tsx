@@ -45,13 +45,8 @@ export function Navbar() {
       <div className="mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-16 lg:h-20 items-center gap-4 lg:gap-8 w-full">
           <a href="#home" className="flex items-center gap-3 group shrink-0" aria-label="CASCATA — Home">
-            <div className={cn(
-              "flex items-center justify-center rounded-lg p-1 transition-all duration-300",
-              scrolled
-                ? "bg-white shadow-sm ring-1 ring-black/[0.04]"
-                : "bg-white/90 backdrop-blur-sm ring-1 ring-white/20"
-            )}>
-              <img src={logo} alt="CASCATA Waterproofing" className="h-10 w-10 lg:h-11 lg:w-11 object-contain" width={44} height={44} />
+            <div className="flex items-center justify-center rounded-xl p-2 bg-[color:var(--brand-deep)] border border-white/10 shadow-sm transition-all duration-300 group-hover:scale-[1.03] shrink-0">
+              <img src={logo} alt="CASCATA Waterproofing" className="h-9 lg:h-10 w-auto object-contain" />
             </div>
             <div className="flex flex-col justify-center leading-none">
               <span
