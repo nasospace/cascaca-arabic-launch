@@ -44,17 +44,19 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-16 lg:h-20 items-center gap-4 lg:gap-8 w-full">
-          <a href="#home" className="flex items-center gap-2.5 group shrink-0" aria-label="CASCATA — Home">
+          <a href="#home" className="flex items-center gap-3 group shrink-0" aria-label="CASCATA — Home">
             <div className={cn(
-              "flex items-center justify-center rounded-xl p-1.5 transition ring-1 ring-white/20",
-              scrolled ? "bg-white ring-black/5" : "bg-white/95 backdrop-blur"
+              "flex items-center justify-center rounded-lg p-1 transition-all duration-300",
+              scrolled
+                ? "bg-white shadow-sm ring-1 ring-black/[0.04]"
+                : "bg-white/90 backdrop-blur-sm ring-1 ring-white/20"
             )}>
-              <img src={logo} alt="CASCATA Waterproofing" className="h-12 w-12 lg:h-14 lg:w-14 object-contain" width={56} height={56} />
+              <img src={logo} alt="CASCATA Waterproofing" className="h-10 w-10 lg:h-11 lg:w-11 object-contain" width={44} height={44} />
             </div>
-            <div className="flex flex-col leading-none">
+            <div className="flex flex-col justify-center leading-none">
               <span
                 className={cn(
-                  "font-display text-lg lg:text-xl font-black tracking-[0.15em]",
+                  "font-display text-[17px] lg:text-[19px] font-black tracking-[0.14em]",
                   scrolled ? "text-foreground" : "text-white"
                 )}
               >
@@ -62,8 +64,8 @@ export function Navbar() {
               </span>
               <span
                 className={cn(
-                  "text-[9px] tracking-[0.3em] uppercase mt-1 font-medium",
-                  scrolled ? "text-muted-foreground" : "text-white/70"
+                  "text-[8px] lg:text-[8.5px] tracking-[0.25em] uppercase mt-[3px] font-semibold",
+                  scrolled ? "text-muted-foreground/70" : "text-white/60"
                 )}
               >
                 {t("hero.tagline")}
