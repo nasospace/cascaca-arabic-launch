@@ -36,6 +36,23 @@ import systemsImg from "@/assets/systems.jpg";
 import mission from "@/assets/mission.jpg";
 import commitment from "@/assets/commitment.jpg";
 
+// Partner logos
+import logoSika from "@/assets/partners/sika.png";
+import logoMc from "@/assets/partners/mc.png";
+import logoFosroc from "@/assets/partners/fosroc.png";
+import logoSoprema from "@/assets/partners/soprema.png";
+import logoBasf from "@/assets/partners/basf.png";
+import logoPolybit from "@/assets/partners/polybit.png";
+import logoStoncor from "@/assets/partners/stoncor.png";
+import logoFlowcrete from "@/assets/partners/flowcrete.png";
+import logoAwazel from "@/assets/partners/awazel.png";
+import logoHilti from "@/assets/partners/hilti.png";
+import logoHenkel from "@/assets/partners/henkel.png";
+import logoCorrotech from "@/assets/partners/corrotech.png";
+import logoMapei from "@/assets/partners/mapei.png";
+import logoVip from "@/assets/partners/vip.png";
+import logoWeber from "@/assets/partners/weber.png";
+
 export const Route = createFileRoute("/")({
   component: HomePage,
 });
@@ -341,13 +358,37 @@ function HomePage() {
           </h2>
           <p className="max-w-3xl mx-auto text-muted-foreground leading-relaxed">{t("al.body")}</p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {["SIKA", "FOSROC", "BASF", "MAPEI", "HENKEL", "POLYBIT"].map((p) => (
+
+        {/* Partner logo grid — 5 cols desktop, 3 cols tablet, 2 cols mobile */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-5">
+          {[
+            { src: logoSika,      name: "Sika" },
+            { src: logoMc,        name: "MC – Be Sure. Build Sure." },
+            { src: logoFosroc,    name: "Fosroc" },
+            { src: logoSoprema,   name: "Soprema" },
+            { src: logoBasf,      name: "BASF Master Builders" },
+            { src: logoPolybit,   name: "Polybit" },
+            { src: logoStoncor,   name: "StonCor Group" },
+            { src: logoFlowcrete, name: "Flowcrete" },
+            { src: logoAwazel,    name: "Awazel" },
+            { src: logoHilti,     name: "Hilti" },
+            { src: logoHenkel,    name: "Henkel" },
+            { src: logoCorrotech, name: "Corrotech" },
+            { src: logoMapei,     name: "Mapei" },
+            { src: logoVip,       name: "VIP Coating Solutions" },
+            { src: logoWeber,     name: "Weber" },
+          ].map(({ src, name }) => (
             <div
-              key={p}
-              className="aspect-[3/2] rounded-xl bg-white border border-border shadow-card-soft flex items-center justify-center font-display font-black text-foreground/80 tracking-widest text-sm sm:text-base hover:shadow-elegant hover:text-primary transition"
+              key={name}
+              title={name}
+              className="group relative flex aspect-[3/2] items-center justify-center rounded-2xl border border-border bg-white px-5 py-4 shadow-card-soft hover:shadow-elegant hover:-translate-y-0.5 hover:border-primary/30 transition-all duration-300"
             >
-              {p}
+              <img
+                src={src}
+                alt={name}
+                className="h-full w-full object-contain mix-blend-multiply filter group-hover:brightness-110 transition-all duration-300"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
