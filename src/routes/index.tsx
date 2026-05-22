@@ -21,6 +21,7 @@ import {
   Syringe,
   Wrench,
   Square,
+  BadgeCheck,
 } from "lucide-react";
 import { useState, FormEvent, ReactNode } from "react";
 import { z } from "zod";
@@ -106,14 +107,21 @@ function HomePage() {
               </a>
             </div>
 
-            <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
-              {[t("hero.badge1"), t("hero.badge2"), t("hero.badge3"), t("hero.badge4")].map((b, i) => (
+            <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl">
+              {[
+                { label: t("hero.badge1"), Icon: BadgeCheck },
+                { label: t("hero.badge2"), Icon: HardHat },
+                { label: t("hero.badge3"), Icon: ShieldCheck },
+                { label: t("hero.badge4"), Icon: MapPin },
+              ].map(({ label, Icon }, i) => (
                 <div
                   key={i}
-                  className="flex items-start gap-2 rounded-lg border border-white/15 bg-white/5 backdrop-blur px-3 py-2.5"
+                  className="group relative flex items-center gap-3 rounded-xl border border-white/[0.12] bg-white/[0.06] backdrop-blur-md px-4 py-3.5 hover:bg-white/[0.1] hover:border-white/20 hover:-translate-y-0.5 transition-all duration-300 cursor-default"
                 >
-                  <ShieldCheck className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                  <span className="text-xs font-semibold leading-snug">{b}</span>
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/15 ring-1 ring-primary/20 group-hover:bg-primary/20 group-hover:ring-primary/30 transition-all duration-300">
+                    <Icon className="h-[18px] w-[18px] text-primary" />
+                  </div>
+                  <span className="text-[13px] font-semibold leading-tight text-white/90 group-hover:text-white transition-colors duration-300">{label}</span>
                 </div>
               ))}
             </div>
