@@ -18,8 +18,11 @@ import viteReact from "@vitejs/plugin-react";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const githubPagesBase = "/cascaca-arabic-launch/";
 
 export default defineConfig({
+  base: isGitHubPages ? githubPagesBase : "/",
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
@@ -37,6 +40,14 @@ export default defineConfig({
     tailwindcss(),
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({
+      router: {
+        basepath: isGitHubPages ? githubPagesBase : undefined,
+      },
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+        failOnError: true,
+      },
       importProtection: {
         behavior: "error",
         client: {
