@@ -39,7 +39,7 @@ export function Navbar() {
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
           ? "bg-white/95 backdrop-blur-xl border-b border-border shadow-card-soft"
-          : "bg-gradient-to-b from-black/40 to-transparent"
+          : "bg-gradient-to-b from-[#334260]/55 to-transparent"
       )}
     >
       <div className="mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">
@@ -52,7 +52,7 @@ export function Navbar() {
               <span
                 className={cn(
                   "font-display text-[17px] lg:text-[19px] font-black tracking-[0.14em]",
-                  scrolled ? "text-foreground" : "text-white"
+                  scrolled ? "text-[#334260]" : "text-white"
                 )}
               >
                 CASCATA
@@ -60,7 +60,7 @@ export function Navbar() {
               <span
                 className={cn(
                   "text-[8px] lg:text-[8.5px] tracking-[0.25em] uppercase mt-[3px] font-semibold",
-                  scrolled ? "text-muted-foreground/70" : "text-white/60"
+                  scrolled ? "text-[#a1a1a1]" : "text-white/65"
                 )}
               >
                 {t("hero.tagline")}
@@ -77,7 +77,7 @@ export function Navbar() {
                   className={cn(
                     "whitespace-nowrap px-2 py-2 text-[13px] font-bold tracking-tight rounded-md transition-all duration-300",
                     scrolled
-                      ? "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                      ? "text-[#334260]/80 hover:text-[#637eb5] hover:bg-[#637eb5]/5"
                       : "text-white/90 hover:text-white hover:bg-white/10"
                   )}
                 >
@@ -94,7 +94,7 @@ export function Navbar() {
               className={cn(
                 "h-10 w-10 shrink-0 inline-flex items-center justify-center rounded-md border text-sm font-bold transition-all duration-300 hover:-translate-y-0.5",
                 scrolled
-                  ? "border-border text-foreground hover:bg-secondary hover:shadow-sm"
+                  ? "border-[#a1a1a1]/35 text-[#334260] hover:border-[#637eb5]/40 hover:bg-[#637eb5]/10 hover:shadow-sm"
                   : "border-white/30 text-white hover:bg-white/10 hover:border-white/50"
               )}
             >
@@ -131,7 +131,7 @@ export function Navbar() {
                   key={it.id}
                   href={`#${it.id}`}
                   onClick={close}
-                  className="px-3 py-2.5 text-sm font-medium rounded-md text-foreground hover:bg-secondary"
+                  className="px-3 py-2.5 text-sm font-medium rounded-md text-[#334260] hover:bg-[#637eb5]/10 hover:text-[#637eb5]"
                 >
                   {t(it.key)}
                 </a>
@@ -143,7 +143,7 @@ export function Navbar() {
                     close();
                   }}
                   aria-label={switchAria}
-                  className="h-11 w-11 shrink-0 inline-flex items-center justify-center rounded-md border border-border text-base font-bold"
+                  className="h-11 w-11 shrink-0 inline-flex items-center justify-center rounded-md border border-[#a1a1a1]/35 text-base font-bold text-[#334260]"
                 >
                   {switchLabel}
                 </button>

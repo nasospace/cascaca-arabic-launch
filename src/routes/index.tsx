@@ -15,7 +15,6 @@ import {
   MessageCircle,
   Mail,
   MapPin,
-  Phone,
   Droplets,
   Building2,
   Bath,
@@ -28,15 +27,15 @@ import { useState, FormEvent, ReactNode } from "react";
 import { z } from "zod";
 
 import hero from "@/assets/hero-cascata.jpg";
-import substructure from "@/assets/substructure.jpg";
+import substructure from "@/assets/substructure.png";
 import roofing from "@/assets/roofing.jpg";
 import wetarea from "@/assets/wetarea.jpg";
 import flooring from "@/assets/flooring.jpg";
 import injection from "@/assets/injection.jpg";
 import repair from "@/assets/repair.jpg";
-import systemsImg from "@/assets/systems.jpg";
+import systemsImg from "@/assets/systems.png";
 import mission from "@/assets/mission.jpg";
-import commitment from "@/assets/commitment.jpg";
+import commitment from "@/assets/commitment.png";
 
 // Partner logos
 import logoSika from "@/assets/partners/sika.png";
@@ -374,7 +373,7 @@ function HomePage() {
       {/* ── FINAL CTA ────────────────────────────────────────── */}
       <section className="py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0a1128] to-[#1c2c54] border border-white/5 p-10 md:p-16 shadow-2xl">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#334260] to-[#637eb5] border border-white/10 p-10 md:p-16 shadow-elegant">
             <div className="absolute inset-0 grid-pattern opacity-20" />
             <div className="absolute -top-32 -start-32 w-[26rem] h-[26rem] rounded-full bg-primary/30 blur-3xl pointer-events-none" />
             <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
@@ -390,7 +389,7 @@ function HomePage() {
                 href={waLink(t("wa.general"))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-7 py-4 text-sm font-bold text-[#0a1128] shadow-glow hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-7 py-4 text-sm font-bold text-[#334260] shadow-glow hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 whitespace-nowrap"
               >
                 <MessageCircle className="h-5 w-5" />
                 {t("cta.startFull")}
@@ -416,8 +415,8 @@ function HomePage() {
               rel="noopener noreferrer"
               className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 hover:border-primary hover:shadow-elegant hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="h-11 w-11 rounded-lg bg-[#25D366]/15 flex items-center justify-center shrink-0">
-                <MessageCircle className="h-5 w-5 text-[#25D366]" />
+              <div className="h-11 w-11 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <MessageCircle className="h-5 w-5 text-primary" />
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
@@ -759,7 +758,7 @@ function ContactForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-card-soft space-y-4"
+      className="rounded-2xl border border-[#a1a1a1]/25 bg-white p-6 sm:p-8 shadow-card-soft space-y-4"
     >
       <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
       <div className="grid sm:grid-cols-2 gap-4">
@@ -770,11 +769,11 @@ function ContactForm() {
       <Field label={t("form.svc")} name="service" />
       <Field label={t("form.loc")} name="location" />
       <div>
-        <label className="block text-xs font-bold text-foreground mb-1.5">{t("form.desc")}</label>
+        <label className="block text-xs font-bold text-[#334260] mb-1.5">{t("form.desc")}</label>
         <textarea
           name="description"
           rows={4}
-          className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition resize-none"
+          className="w-full rounded-md border border-[#a1a1a1]/35 bg-white px-3 py-2.5 text-sm text-[#334260] focus:outline-none focus:ring-2 focus:ring-[#637eb5] focus:border-[#637eb5] transition resize-none"
         />
       </div>
       <button
@@ -808,15 +807,15 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-xs font-bold text-foreground mb-1.5">
+      <label className="block text-xs font-bold text-[#334260] mb-1.5">
         {label} {required && <span className="text-destructive">*</span>}
       </label>
       <input
         name={name}
         type={type}
         dir={dir}
-        className={`w-full rounded-md border bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition ${
-          error ? "border-destructive" : "border-input focus:border-primary"
+        className={`w-full rounded-md border bg-white px-3 py-2.5 text-sm text-[#334260] focus:outline-none focus:ring-2 focus:ring-[#637eb5] transition ${
+          error ? "border-destructive" : "border-[#a1a1a1]/35 focus:border-[#637eb5]"
         }`}
       />
       {error && <p className="mt-1 text-xs text-destructive">{error}</p>}
