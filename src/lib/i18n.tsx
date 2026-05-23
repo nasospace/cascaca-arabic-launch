@@ -152,14 +152,28 @@ const dict: Record<string, { en: string; ar: string }> = {
   },
 
   // Portfolio
-  "pf.title": { en: "Selected Project Work", ar: "نماذج من أعمالنا" },
-  "pf.eyebrow": { en: "Portfolio", ar: "أعمالنا" },
-  "pf.1": { en: "Sub-structure Waterproofing", ar: "عزل الأساسات والقواعد" },
-  "pf.2": { en: "Roofing & Thermal Insulation", ar: "عزل الأسطح والأنظمة الحرارية" },
-  "pf.3": { en: "Wet Area & Balcony Waterproofing", ar: "عزل المناطق الرطبة والشرفات" },
-  "pf.4": { en: "Specialized Protection Systems", ar: "أنظمة الحماية المتخصصة" },
-  "pf.5": { en: "Site Supervision", ar: "إشراف الموقع" },
-  "pf.6": { en: "Strategic Engineering Execution", ar: "تنفيذ هندسي استراتيجي" },
+  "pf.trustEyebrow": { en: "Reference Authority", ar: "مرجعية موثوقة" },
+  "pf.trustTitle": {
+    en: "The Choice of Sovereign Entities & Top-Tier Developers",
+    ar: "اختيار الجهات السيادية وكبار المطورين",
+  },
+  "pf.title": { en: "Explore Portfolio", ar: "استكشف سابقة الأعمال" },
+  "pf.eyebrow": { en: "Selected Portfolio", ar: "سابقة أعمال مختارة" },
+  "pf.intro": {
+    en: "A selected portfolio of national landmarks, strategic infrastructure, luxury destinations, institutional facilities, and corporate developments delivered to demanding technical standards across the UAE.",
+    ar: "نماذج مختارة من مشاريع ومعالم وطنية وبنية تحتية استراتيجية ووجهات فاخرة ومنشآت مؤسسية وتجارية، تم تنفيذها وفق متطلبات فنية عالية داخل دولة الإمارات.",
+  },
+  "pf.categoryAria": { en: "Portfolio categories", ar: "تصنيفات سابقة الأعمال" },
+  "pf.projectsLabel": { en: "Projects & References", ar: "مشاريع ومراجع" },
+  "pf.client": { en: "Client", ar: "العميل" },
+  "pf.consultant": { en: "Consultant", ar: "الاستشاري" },
+  "pf.contractor": { en: "Contractor", ar: "المقاول" },
+  "pf.scopeNote": { en: "Featured references shown first", ar: "المراجع الأبرز معروضة أولًا" },
+  "pf.referencesCount": { en: "references", ar: "مرجعًا" },
+  "pf.viewAll": { en: "View all references", ar: "عرض كل المراجع" },
+  "pf.showLess": { en: "Show fewer", ar: "عرض أقل" },
+  "pf.hiddenProjects": { en: "Additional portfolio projects are available in this category.", ar: "توجد مشاريع إضافية ضمن هذا التصنيف." },
+  "pf.cta": { en: "Discuss a Similar Project", ar: "ناقش مشروعًا مشابهًا" },
 
   // Commitment
   "com.title": { en: "Our Commitment", ar: "التزامنا" },
@@ -225,6 +239,10 @@ const dict: Record<string, { en: string; ar: string }> = {
   "wa.general": {
     en: "Hello CASCATA, I'm interested in your structural protection and waterproofing services. I would like to get more details.",
     ar: "مرحبًا CASCATA، أريد الاستفسار عن خدمات حماية المنشآت والعزل المائي. من فضلك أرسل لي التفاصيل.",
+  },
+  "wa.portfolio": {
+    en: "Hello CASCATA, I reviewed your selected portfolio and would like to discuss a similar waterproofing or insulation project.",
+    ar: "مرحبًا CASCATA، اطلعت على سابقة الأعمال المختارة وأرغب في مناقشة مشروع مشابه في العزل المائي أو العزل الحراري.",
   },
 };
 
