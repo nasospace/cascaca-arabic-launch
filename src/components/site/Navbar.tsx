@@ -2,7 +2,7 @@ import { useT, waLink } from "@/lib/i18n";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo-cascata.png";
+import logo from "@/assets/logo-cascata-nav.png";
 
 const navItems = [
   { id: "home", key: "nav.home" },
@@ -45,27 +45,19 @@ export function Navbar() {
       <div className="mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-16 lg:h-20 items-center gap-4 lg:gap-8 w-full">
           <a href="#home" className="flex items-center gap-3 group shrink-0" aria-label="CASCATA — Home">
-            <div className="flex items-center justify-center rounded-xl p-2 bg-[color:var(--brand-deep)] border border-white/10 shadow-sm transition-all duration-300 group-hover:scale-[1.03] shrink-0">
-              <img src={logo} alt="CASCATA Waterproofing" className="h-9 lg:h-10 w-auto object-contain" />
-            </div>
-            <div className="flex flex-col justify-center leading-none">
-              <span
-                className={cn(
-                  "font-display text-[17px] lg:text-[19px] font-black tracking-[0.14em]",
-                  scrolled ? "text-[#334260]" : "text-white"
-                )}
-              >
-                CASCATA
-              </span>
-              <span
-                className={cn(
-                  "text-[8px] lg:text-[8.5px] tracking-[0.25em] uppercase mt-[3px] font-semibold",
-                  scrolled ? "text-[#a1a1a1]" : "text-white/65"
-                )}
-              >
-                {t("hero.tagline")}
-              </span>
-            </div>
+            <img
+              src={logo}
+              alt="CASCATA Waterproofing"
+              className="h-12 w-auto shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.03] lg:h-16"
+            />
+            <span
+              className={cn(
+                "max-w-28 text-[7px] font-bold uppercase leading-[1.35] tracking-[0.12em] sm:max-w-40 sm:text-[9px] sm:tracking-[0.14em] lg:max-w-48 lg:text-[10px]",
+                scrolled ? "text-[#334260]" : "text-white/90"
+              )}
+            >
+              Cascata Insulation material works
+            </span>
           </a>
 
           <div className="hidden 2xl:flex justify-center pr-4">
