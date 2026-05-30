@@ -48,7 +48,7 @@ export function Navbar() {
             <img
               src={logo}
               alt="CASCATA Waterproofing"
-              className="h-12 w-auto shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.03] lg:h-16 border-0 rounded-none"
+              className="h-14 w-auto shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.03] lg:h-20 border-0 rounded-none"
 
             />
             <span
