@@ -43,7 +43,7 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-16 lg:h-20 items-center gap-4 lg:gap-8 w-full">
+        <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-20 lg:h-24 items-center gap-4 lg:gap-8 w-full">
           <a href="#home" className="flex items-center gap-3 group shrink-0" aria-label="CASCATA — Home">
             <img
               src={logo}
