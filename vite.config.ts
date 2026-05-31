@@ -8,58 +8,27 @@ if (typeof crypto.hash !== "function") {
   };
 }
 
-import { fileURLToPath } from "node:url";
-import { dirname, resolve } from "node:path";
-import { defineConfig } from "vite";
-import tailwindcss from "@tailwindcss/vite";
-import tsConfigPaths from "vite-tsconfig-paths";
-import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import viteReact from "@vitejs/plugin-react";
+import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
 const githubPagesBase = "/cascaca-arabic-launch/";
 
 export default defineConfig({
-  base: isGitHubPages ? githubPagesBase : "/",
-  resolve: {
-    alias: {
-      "@": resolve(__dirname, "./src"),
+  // For GitHub Pages we produce a fully static build, so the Cloudflare
+  // worker plugin must be disabled. For the Lovable deploy (default) it stays
+  // enabled so the SSR worker bundle includes runtime deps like `h3-v2`.
+  cloudflare: isGitHubPages ? false : undefined,
+  tanstackStart: {
+    router: {
+      basepath: isGitHubPages ? githubPagesBase : undefined,
     },
-    dedupe: [
-      "react",
-      "react-dom",
-      "react/jsx-runtime",
-      "react/jsx-dev-runtime",
-      "@tanstack/react-query",
-      "@tanstack/query-core",
-    ],
+    prerender: {
+      enabled: true,
+      crawlLinks: true,
+      failOnError: true,
+    },
   },
-  plugins: [
-    tailwindcss(),
-    tsConfigPaths({ projects: ["./tsconfig.json"] }),
-    tanstackStart({
-      router: {
-        basepath: isGitHubPages ? githubPagesBase : undefined,
-      },
-      prerender: {
-        enabled: true,
-        crawlLinks: true,
-        failOnError: true,
-      },
-      importProtection: {
-        behavior: "error",
-        client: {
-          files: ["**/server/**"],
-          specifiers: ["server-only"],
-        },
-      },
-    }),
-    viteReact(),
-  ],
-  server: {
-    host: "::",
-    port: 8080,
+  vite: {
+    base: isGitHubPages ? githubPagesBase : "/",
   },
 });
