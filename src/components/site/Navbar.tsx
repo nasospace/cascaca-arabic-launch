@@ -53,7 +53,7 @@ export function Navbar() {
               />
               <span
                 className={cn(
-                  "font-cinzel max-w-28 text-[8px] font-semibold uppercase leading-[1.35] tracking-[0.15em] sm:max-w-40 sm:text-[10px] sm:tracking-[0.18em] lg:max-w-48 lg:text-[11px]",
+                  "font-cinzel max-w-28 text-[8px] font-semibold uppercase leading-[1.35] tracking-[0.15em] sm:max-w-40 sm:text-[10px] sm:tracking-[0.18em] lg:max-w-none lg:whitespace-nowrap lg:text-[11px]",
                   scrolled ? "text-[#334260]" : "text-white/90"
                 )}
               >

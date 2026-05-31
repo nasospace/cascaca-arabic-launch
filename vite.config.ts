@@ -8,7 +8,7 @@ if (typeof crypto.hash !== "function") {
   };
 }
 
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from "@lovable.dev/vite-tanstack-config/dist/index.js";
 
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
 const githubPagesBase = "/cascaca-arabic-launch/";
