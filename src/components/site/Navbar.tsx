@@ -44,20 +44,29 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-20 lg:h-24 items-center gap-4 lg:gap-8 w-full">
-          <a href="#home" className="flex items-center gap-3 group shrink-0" aria-label="CASCATA — Home">
-            <img
-              src={logo}
-              alt="CASCATA Waterproofing"
-              className="h-14 w-auto shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.03] lg:h-20 border-0 rounded-none"
-
-            />
+          <a href="#home" className="flex flex-col gap-0.5 group shrink-0" aria-label="CASCATA — Home">
+            <div className="flex items-center gap-3">
+              <img
+                src={logo}
+                alt="CASCATA Waterproofing"
+                className="h-14 w-auto shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.03] lg:h-20 border-0 rounded-none"
+              />
+              <span
+                className={cn(
+                  "font-cinzel max-w-28 text-[8px] font-semibold uppercase leading-[1.35] tracking-[0.15em] sm:max-w-40 sm:text-[10px] sm:tracking-[0.18em] lg:max-w-48 lg:text-[11px]",
+                  scrolled ? "text-[#334260]" : "text-white/90"
+                )}
+              >
+                Insulation material works
+              </span>
+            </div>
             <span
               className={cn(
-                "max-w-28 text-[7px] font-bold uppercase leading-[1.35] tracking-[0.12em] sm:max-w-40 sm:text-[9px] sm:tracking-[0.14em] lg:max-w-48 lg:text-[10px]",
-                scrolled ? "text-[#334260]" : "text-white/90"
+                "font-cinzel text-[10px] font-bold uppercase tracking-[0.2em] sm:text-[11px] lg:text-xs",
+                scrolled ? "text-[#334260]/80" : "text-white/80"
               )}
             >
-              Cascata Insulation material works
+              {t("hero.tagline")}
             </span>
           </a>
 
