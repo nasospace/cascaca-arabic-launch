@@ -36,7 +36,7 @@ const dict: Record<string, { en: string; ar: string }> = {
   "hero.tagline": { en: "​", ar: "​" },
   "hero.title": { en: "Engineering Excellence in Structural Protection", ar: "التميز الهندسي في حماية المنشآت" },
   "hero.sub": {
-    en: "Certified waterproofing, insulation, concrete repair, and long-term protection systems for residential, commercial, and industrial projects across the UAE.",
+    en: " Long-lasting engineering solutions for waterproofing, insulation, and structural durability.",
     ar: "حلول معتمدة في العزل المائي والحراري، ترميم الخرسانة، وحماية المنشآت للمشاريع السكنية والتجارية والصناعية في دولة الإمارات.",
   },
   "hero.badge1": { en: "Certified Systems", ar: "أنظمة معتمدة" },
