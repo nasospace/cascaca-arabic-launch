@@ -33,7 +33,7 @@ const dict: Record<string, { en: string; ar: string }> = {
   "cta.askService": { en: "Ask About This Service", ar: "اسأل عن هذه الخدمة" },
 
   // Hero
-  "hero.tagline": { en: "Protection Builds Trust", ar: "الحماية تبني الثقة" },
+  "hero.tagline": { en: "​", ar: "​" },
   "hero.title": { en: "Engineering Excellence in Structural Protection", ar: "التميز الهندسي في حماية المنشآت" },
   "hero.sub": {
     en: "Certified waterproofing, insulation, concrete repair, and long-term protection systems for residential, commercial, and industrial projects across the UAE.",
