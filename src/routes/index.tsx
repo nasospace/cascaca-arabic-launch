@@ -78,10 +78,6 @@ function HomePage() {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-20 grid lg:grid-cols-12 gap-8 items-center w-full">
           <div className="lg:col-span-8 text-white">
-            <span className="inline-flex items-center gap-2 border-white/25 bg-white/5 backdrop-blur px-4 py-1.5 text-xs font-semibold tracking-[0.25em] uppercase mb-6 border-0 rounded-none">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              {t("hero.tagline")}
-            </span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-balance">
               {t("hero.title")}
             </h1>
