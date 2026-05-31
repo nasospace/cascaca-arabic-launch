@@ -23,9 +23,13 @@ export default defineConfig({
       basepath: isGitHubPages ? githubPagesBase : undefined,
     },
     prerender: {
-      enabled: true,
-      crawlLinks: true,
-      failOnError: true,
+      // Prerendering spins up a local preview server during `vite build`.
+      // Keep that static export step only for GitHub Pages; Lovable production
+      // deploys the SSR worker directly, so prerender failures should not block
+      // the production build.
+      enabled: isGitHubPages,
+      crawlLinks: isGitHubPages,
+      failOnError: isGitHubPages,
     },
   },
   vite: {
