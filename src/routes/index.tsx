@@ -78,7 +78,7 @@ function HomePage() {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-20 grid lg:grid-cols-12 gap-8 items-center w-full">
           <div className="lg:col-span-8 text-white">
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-balance">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl tracking-tight leading-[1.1] text-balance font-semibold">
               {t("hero.title")}
             </h1>
             <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/85 leading-relaxed">
