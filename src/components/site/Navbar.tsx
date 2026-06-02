@@ -97,7 +97,7 @@ export function Navbar() {
               href={waLink(t("wa.general"))}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 rounded-md bg-primary/70 px-4 lg:px-5 py-2.5 text-sm font-bold text-white shadow-glow hover:-translate-y-0.5 hover:shadow-lg hover:bg-primary/90 transition-all duration-300"
+              className="shrink-0 inline-flex items-center gap-2 rounded-md bg-transparent border border-white/40 px-4 lg:px-5 py-2.5 text-sm font-bold text-white hover:-translate-y-0.5 hover:bg-white/10 transition-all duration-300"
             >
               <MessageCircle className="h-4 w-4" />
               {t("cta.start")}
@@ -145,7 +145,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={close}
-                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-primary/70 px-4 py-3 text-sm font-bold text-white"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-transparent border border-current px-4 py-3 text-sm font-bold text-primary"
                 >
                   <MessageCircle className="h-4 w-4" />
                   {t("cta.start")}
