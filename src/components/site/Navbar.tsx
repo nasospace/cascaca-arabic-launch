@@ -44,30 +44,20 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-24 lg:h-32 items-center gap-4 lg:gap-8 w-full">
-          <a href="#home" className="flex flex-col gap-0.5 group shrink-0" aria-label="CASCATA — Home">
-            <div className="flex items-center gap-3">
-              <img
-                src={logo}
-                alt="CASCATA Waterproofing"
-                className="h-[calc(var(--spacing)*20)] w-auto shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.03] lg:h-[calc(var(--spacing)*25)] border-0 rounded-none"
-              />
-              <span
-                className={cn(
-                  "font-cinzel max-w-28 text-[8px] font-semibold uppercase leading-[1.35] tracking-[0.15em] sm:max-w-40 sm:text-[10px] sm:tracking-[0.18em] lg:max-w-none lg:text-[11px]",
-                  scrolled ? "text-[#334260]" : "text-white/90"
-                )}
-              >
-                <span className="block">Insulation</span>
-                <span className="block whitespace-nowrap">Material works</span>
-              </span>
-            </div>
+          <a href="#home" className="flex items-center gap-3 group shrink-0" aria-label="CASCATA — Home">
+            <img
+              src={logo}
+              alt="CASCATA Waterproofing"
+              className="h-[calc(var(--spacing)*16)] w-auto shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.03] lg:h-[calc(var(--spacing)*20)] border-0 rounded-none"
+            />
             <span
               className={cn(
-                "font-cinzel text-[10px] font-bold uppercase tracking-[0.2em] sm:text-[11px] lg:text-xs",
-                scrolled ? "text-[#334260]/80" : "text-white/80"
+                "font-cinzel max-w-28 text-[8px] font-semibold uppercase leading-[1.35] tracking-[0.15em] sm:max-w-40 sm:text-[10px] sm:tracking-[0.18em] lg:max-w-none lg:text-[11px]",
+                scrolled ? "text-[#334260]" : "text-white/90"
               )}
             >
-              {t("hero.tagline")}
+              <span className="block">Insulation</span>
+              <span className="block whitespace-nowrap">Material works</span>
             </span>
           </a>
 
