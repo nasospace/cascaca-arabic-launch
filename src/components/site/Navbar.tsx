@@ -2,7 +2,7 @@ import { useT, waLink } from "@/lib/i18n";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo-cascata-new.png";
+import logo from "@/assets/logo-cascata-final.png";
 
 const navItems = [
   { id: "home", key: "nav.home" },

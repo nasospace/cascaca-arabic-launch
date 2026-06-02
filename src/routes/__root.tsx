@@ -51,8 +51,8 @@ export const Route = createRootRoute({
           description:
             "Certified waterproofing, thermal insulation, concrete repair, and structural protection services across the UAE.",
           url: "/",
-          logo: "/logo-cascata-new.png",
-          image: "/logo-cascata-new.png",
+          logo: "/logo-cascata-final.png",
+          image: "/logo-cascata-final.png",
           telephone: "+971555309240",
           email: "Operation@cascata.ae",
           address: {
