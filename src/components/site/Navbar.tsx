@@ -145,7 +145,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={close}
-                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-3 text-sm font-bold text-white"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-primary/70 px-4 py-3 text-sm font-bold text-white"
                 >
                   <MessageCircle className="h-4 w-4" />
                   {t("cta.start")}
