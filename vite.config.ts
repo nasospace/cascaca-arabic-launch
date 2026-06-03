@@ -11,25 +11,28 @@ if (typeof crypto.hash !== "function") {
 import { defineConfig } from "@lovable.dev/vite-tanstack-config/dist/index.js";
 
 const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const isVercel = process.env.VERCEL === "1" || process.env.VERCEL === "true";
+const isExplicitStaticDeploy = process.env.STATIC_DEPLOY === "true";
+const isStaticDeploy = isGitHubPages || isVercel || isExplicitStaticDeploy;
 const githubPagesBase = "/cascaca-arabic-launch/";
 
 export default defineConfig({
-  // For GitHub Pages we produce a fully static build, so the Cloudflare
+  // For static hosts (GitHub Pages and Vercel static output) we produce a
+  // prerendered build, so the Cloudflare worker plugin must be disabled.
   // worker plugin must be disabled. For the Lovable deploy (default) it stays
   // enabled so the SSR worker bundle includes runtime deps like `h3-v2`.
-  cloudflare: isGitHubPages ? false : undefined,
+  cloudflare: isStaticDeploy ? false : undefined,
   tanstackStart: {
     router: {
       basepath: isGitHubPages ? githubPagesBase : undefined,
     },
     prerender: {
       // Prerendering spins up a local preview server during `vite build`.
-      // Keep that static export step only for GitHub Pages; Lovable production
-      // deploys the SSR worker directly, so prerender failures should not block
-      // the production build.
-      enabled: isGitHubPages,
-      crawlLinks: isGitHubPages,
-      failOnError: isGitHubPages,
+      // Keep that static export step only for static hosts; Lovable production
+      // deploys the SSR worker directly.
+      enabled: isStaticDeploy,
+      crawlLinks: isStaticDeploy,
+      failOnError: isStaticDeploy,
     },
   },
   vite: {
