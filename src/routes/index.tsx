@@ -73,7 +73,7 @@ function HomePage() {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#3a3a3a]/85 via-[#a1a1a1]/39 to-[#111111]/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3a3a3a]/88 via-[#6f6f6f]/45 to-[#a1a1a1]/12" />
         <div className="absolute inset-0 grid-pattern opacity-30" />
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-20 grid lg:grid-cols-12 gap-8 items-center w-full">

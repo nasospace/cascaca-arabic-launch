@@ -45,14 +45,21 @@ export function Navbar() {
       <div className="mx-auto max-w-[1536px] px-4 sm:px-6 lg:px-10">
         <div className="grid grid-cols-[auto_auto] 2xl:grid-cols-[auto_1fr_auto] h-16 lg:h-20 items-center gap-4 lg:gap-8 w-full">
           <a href="#home" className="flex items-center gap-3 group shrink-0" aria-label="CASCATA — Home">
-            <img
-              src={logo}
-              alt="CASCATA Waterproofing"
-              className="h-[calc(var(--spacing)*16)] w-auto shrink-0 object-contain transition-transform duration-300 group-hover:scale-[1.03] lg:h-[calc(var(--spacing)*20)] border-0 rounded-none"
-            />
             <span
               className={cn(
-                "font-cinzel max-w-28 text-[8px] font-semibold uppercase leading-[1.35] tracking-[0.15em] sm:max-w-40 sm:text-[10px] sm:tracking-[0.18em] lg:max-w-none lg:text-[11px]",
+                "inline-flex shrink-0 items-center justify-center rounded-lg px-1.5 py-1 transition-all duration-300",
+                scrolled ? "bg-[#334260] shadow-sm ring-1 ring-[#334260]/10" : "bg-transparent"
+              )}
+            >
+              <img
+                src={logo}
+                alt="CASCATA Waterproofing"
+                className="h-[calc(var(--spacing)*16)] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03] lg:h-[calc(var(--spacing)*20)] border-0 rounded-none"
+              />
+            </span>
+            <span
+              className={cn(
+                "font-cinzel max-w-28 text-[9px] font-semibold uppercase leading-[1.35] tracking-[0.15em] sm:max-w-40 sm:tracking-[0.18em] lg:max-w-none",
                 scrolled ? "text-[#334260]" : "text-white/90"
               )}
             >
@@ -97,7 +104,12 @@ export function Navbar() {
               href={waLink(t("wa.general"))}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 rounded-md bg-transparent border border-white/40 px-4 lg:px-5 py-2.5 text-sm font-bold text-white hover:-translate-y-0.5 hover:bg-white/10 transition-all duration-300"
+              className={cn(
+                "shrink-0 inline-flex items-center gap-2 rounded-md bg-transparent px-4 lg:px-5 py-2.5 text-sm font-bold hover:-translate-y-0.5 transition-all duration-300",
+                scrolled
+                  ? "border border-[#637eb5]/60 text-[#334260] hover:border-[#637eb5] hover:bg-[#637eb5]/10"
+                  : "border border-white/40 text-white hover:bg-white/10"
+              )}
             >
               <MessageCircle className="h-4 w-4" />
               {t("cta.start")}
