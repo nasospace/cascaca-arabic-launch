@@ -6,10 +6,7 @@ import {
   ArrowLeft,
   ShieldCheck,
   HardHat,
-  Clock,
-  BadgeDollarSign,
   Award,
-  Layers,
   CheckCircle2,
   Send,
   MessageCircle,
@@ -81,8 +78,11 @@ function HomePage() {
             <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl tracking-tight leading-[1.1] text-balance font-semibold">
               {t("hero.title")}
             </h1>
-            <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/85 leading-relaxed">
+            <p className="mt-6 max-w-2xl text-lg sm:text-xl text-white/85 leading-relaxed">
               {t("hero.sub")}
+            </p>
+            <p className="mt-4 text-sm sm:text-base font-semibold uppercase tracking-[0.22em] text-white/90">
+              {t("hero.slogan")}
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -125,7 +125,10 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ── ABOUT ────────────────────────────────────────────── */}
+      {/* PORTFOLIO */}
+      <PortfolioSection />
+
+      {/* ABOUT */}
       <Section id="about">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
@@ -158,17 +161,10 @@ function HomePage() {
         <div className="text-center mb-12">
           <Eyebrow center>{t("mv.eyebrow")}</Eyebrow>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
-            {t("vision.title")} &amp; {t("mission.title")}
+            {t("mission.title")} &amp; {t("vision.title")}
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-          <Card>
-            <Award className="h-10 w-10 text-primary mb-4" />
-            <h3 className="font-display text-2xl font-extrabold tracking-tight text-foreground mb-3" id="vision">
-              {t("vision.title")}
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">{t("vision.body")}</p>
-          </Card>
           <Card>
             <ShieldCheck className="h-10 w-10 text-primary mb-4" />
             <h3 className="font-display text-2xl font-black text-foreground mb-3" id="mission">
@@ -176,43 +172,47 @@ function HomePage() {
             </h3>
             <p className="text-muted-foreground leading-relaxed">{t("mission.body")}</p>
           </Card>
+          <Card>
+            <Award className="h-10 w-10 text-primary mb-4" />
+            <h3 className="font-display text-2xl font-extrabold tracking-tight text-foreground mb-3" id="vision">
+              {t("vision.title")}
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">{t("vision.body")}</p>
+          </Card>
         </div>
         <div className="mt-12 relative rounded-2xl overflow-hidden shadow-elegant">
           <img src={mission} alt="" loading="lazy" className="w-full h-64 sm:h-80 object-cover" width={1280} height={960} />
         </div>
       </Section>
 
-      {/* ── WHY CHOOSE ───────────────────────────────────────── */}
-      <Section id="why">
-        <div className="text-center mb-12">
-          <Eyebrow center>{t("why.eyebrow")}</Eyebrow>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground">
-            {t("why.title")}
-          </h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { i: Layers, t: t("why.1.t"), b: t("why.1.b") },
-            { i: HardHat, t: t("why.2.t"), b: t("why.2.b") },
-            { i: Clock, t: t("why.3.t"), b: t("why.3.b") },
-            { i: BadgeDollarSign, t: t("why.4.t"), b: t("why.4.b") },
-            { i: Award, t: t("why.5.t"), b: t("why.5.b") },
-          ].map((c, i) => (
-            <div
-              key={i}
-              className="group rounded-xl border border-border bg-card p-6 hover:shadow-elegant hover:border-primary/50 hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition">
-                <c.i className="h-6 w-6 text-primary group-hover:text-white transition" />
-              </div>
-              <h3 className="font-display text-lg font-black text-foreground mb-2">{c.t}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{c.b}</p>
+      {/* COMMITMENT */}
+      <Section id="commitment">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="relative order-2 lg:order-1">
+            <div className="absolute -inset-6 bg-gradient-brand opacity-10 rounded-2xl blur-2xl" />
+            <img
+              src={commitment}
+              alt={t("com.title")}
+              loading="lazy"
+              className="relative rounded-2xl shadow-elegant w-full h-auto object-cover aspect-[4/3]"
+              width={1280}
+              height={960}
+            />
+          </div>
+          <div className="order-1 lg:order-2">
+            <Eyebrow>{t("com.eyebrow")}</Eyebrow>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-6">
+              {t("com.title")}
+            </h2>
+            <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
+              <p>{t("com.p1")}</p>
+              <p>{t("com.p2")}</p>
             </div>
-          ))}
+          </div>
         </div>
       </Section>
 
-      {/* ── SPECIALIZED SYSTEMS ──────────────────────────────── */}
+      {/* SPECIALIZED SYSTEMS */}
       <Section id="systems" className="bg-[color:var(--brand-deep)] text-white relative overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
         <div className="relative">
@@ -288,36 +288,6 @@ function HomePage() {
               </div>
             </article>
           ))}
-        </div>
-      </Section>
-
-      {/* ── PORTFOLIO ────────────────────────────────────────── */}
-      <PortfolioSection />
-
-      {/* ── COMMITMENT ───────────────────────────────────────── */}
-      <Section id="commitment">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="relative order-2 lg:order-1">
-            <div className="absolute -inset-6 bg-gradient-brand opacity-10 rounded-2xl blur-2xl" />
-            <img
-              src={commitment}
-              alt={t("com.title")}
-              loading="lazy"
-              className="relative rounded-2xl shadow-elegant w-full h-auto object-cover aspect-[4/3]"
-              width={1280}
-              height={960}
-            />
-          </div>
-          <div className="order-1 lg:order-2">
-            <Eyebrow>{t("com.eyebrow")}</Eyebrow>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-              {t("com.title")}
-            </h2>
-            <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
-              <p>{t("com.p1")}</p>
-              <p>{t("com.p2")}</p>
-            </div>
-          </div>
         </div>
       </Section>
 
@@ -534,14 +504,22 @@ function PortfolioSection() {
             <h3 className="font-display max-w-xl text-2xl font-extrabold leading-tight tracking-tight text-[#334260] sm:text-3xl">
               {t("pf.trustTitle")}
             </h3>
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-5 lg:justify-end">
-              {portfolioStakeholders.map((name) => (
-                <span
+            <div className="grid grid-cols-2 gap-x-7 gap-y-6 sm:grid-cols-4 lg:grid-cols-8 lg:gap-x-5">
+              {portfolioStakeholders.map(({ name, logo }) => (
+                <div
                   key={name}
-                  className="font-display text-[12px] font-black uppercase tracking-[0.2em] text-[#334260]/82 transition-colors duration-300 hover:text-[#637eb5] sm:text-sm"
+                  className={`group flex min-h-20 items-center justify-center px-2 py-3 ${
+                    name === "AD Ports" || name === "Majid Al Futtaim" ? "col-span-2 sm:col-span-2 lg:col-span-1" : ""
+                  }`}
+                  title={name}
                 >
-                  {name}
-                </span>
+                  <img
+                    src={logo}
+                    alt={name}
+                    loading="lazy"
+                    className="max-h-16 w-full object-contain opacity-75 grayscale saturate-0 contrast-125 brightness-90 transition-all duration-300 group-hover:opacity-100"
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -551,10 +529,12 @@ function PortfolioSection() {
           <div
             role="tablist"
             aria-label={t("pf.categoryAria")}
-            className="flex gap-2 overflow-x-auto pb-2"
+            className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5"
           >
-            {portfolioCategories.map((category) => {
+            {portfolioCategories.map((category, index) => {
               const activeTab = active.id === category.id;
+              const categoryIcons = [Award, HardHat, Building2, ShieldCheck, BadgeCheck];
+              const CategoryIcon = categoryIcons[index] ?? BadgeCheck;
 
               return (
                 <button
@@ -568,13 +548,24 @@ function PortfolioSection() {
                     setActiveCategory(category.id);
                     setExpanded(false);
                   }}
-                  className={`inline-flex min-h-11 shrink-0 items-center justify-center rounded-full border px-5 py-2.5 text-sm font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#637eb5] focus-visible:ring-offset-2 ${
+                  className={`group flex min-h-[5.75rem] w-full items-center gap-3 rounded-xl border px-4 py-3.5 text-start transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#637eb5] focus-visible:ring-offset-2 ${
                     activeTab
-                      ? "border-[#637eb5] bg-[#637eb5] text-white shadow-[0_14px_30px_-24px_rgba(99,126,181,0.9)]"
-                      : "border-[#a1a1a1]/30 bg-white text-[#334260]/70 hover:border-[#637eb5]/45 hover:text-[#334260]"
+                      ? "border-[#637eb5]/70 bg-[#334260] text-white shadow-[0_18px_34px_-28px_rgba(51,66,96,0.9)]"
+                      : "border-[#a1a1a1]/22 bg-white text-[#334260] hover:-translate-y-0.5 hover:border-[#637eb5]/40 hover:bg-[#637eb5]/5"
                   }`}
                 >
-                  {category.title[lang]}
+                  <span
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-all duration-300 ${
+                      activeTab
+                        ? "bg-white/10 ring-1 ring-white/15"
+                        : "bg-[#637eb5]/10 text-[#637eb5] ring-1 ring-[#637eb5]/10 group-hover:bg-[#637eb5] group-hover:text-white"
+                    }`}
+                  >
+                    <CategoryIcon className="h-5 w-5" />
+                  </span>
+                  <span className="font-display text-[13px] font-extrabold leading-tight tracking-tight sm:text-sm">
+                    {category.title[lang]}
+                  </span>
                 </button>
               );
             })}

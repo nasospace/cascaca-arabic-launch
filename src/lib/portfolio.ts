@@ -1,4 +1,12 @@
 import type { Lang } from "@/lib/i18n";
+import adPortsLogo from "@/assets/portfolio/ad-ports.jpeg";
+import adekLogo from "@/assets/portfolio/adek.jpeg";
+import adnocLogo from "@/assets/portfolio/adnoc.jpeg";
+import aldarLogo from "@/assets/portfolio/aldar.jpeg";
+import damacLogo from "@/assets/portfolio/damac.jpeg";
+import enecLogo from "@/assets/portfolio/enec.jpeg";
+import majidAlFuttaimLogo from "@/assets/portfolio/majid-al-futtaim.jpeg";
+import miralLogo from "@/assets/portfolio/miral.jpeg";
 
 type LocalizedText = Record<Lang, string>;
 
@@ -17,16 +25,21 @@ export type PortfolioCategory = {
   projects: PortfolioProject[];
 };
 
+export type PortfolioStakeholder = {
+  name: string;
+  logo: string;
+};
+
 export const portfolioStakeholders = [
-  "ADNOC",
-  "Aldar",
-  "Miral",
-  "DAMAC",
-  "ENEC",
-  "ADEK",
-  "AD Ports",
-  "Majid Al Futtaim",
-];
+  { name: "ADNOC", logo: adnocLogo },
+  { name: "Aldar", logo: aldarLogo },
+  { name: "Miral", logo: miralLogo },
+  { name: "DAMAC", logo: damacLogo },
+  { name: "ENEC", logo: enecLogo },
+  { name: "ADEK", logo: adekLogo },
+  { name: "AD Ports", logo: adPortsLogo },
+  { name: "Majid Al Futtaim", logo: majidAlFuttaimLogo },
+] satisfies PortfolioStakeholder[];
 
 export const portfolioCategories: PortfolioCategory[] = [
   {

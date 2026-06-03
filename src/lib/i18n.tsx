@@ -15,6 +15,7 @@ const LanguageContext = createContext<Ctx | null>(null);
 // Translation dictionary
 const dict: Record<string, { en: string; ar: string }> = {
   // Nav
+  "nav.core": { en: "Our Core", ar: "جوهرنا" },
   "nav.home": { en: "Home", ar: "الرئيسية" },
   "nav.about": { en: "About Us", ar: "من نحن" },
   "nav.mission": { en: "Mission", ar: "الرسالة" },
@@ -33,6 +34,7 @@ const dict: Record<string, { en: string; ar: string }> = {
   "cta.askService": { en: "Ask About This Service", ar: "اسأل عن هذه الخدمة" },
 
   // Hero
+  "hero.slogan": { en: "Protection Builds Trust", ar: "الحماية تبني الثقة" },
   "hero.tagline": { en: "​", ar: "​" },
   "hero.title": { en: "Engineering Excellence in Structural Protection", ar: "التميز الهندسي في حماية المنشآت" },
   "hero.sub": {
