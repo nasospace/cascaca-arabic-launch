@@ -165,6 +165,11 @@ const dict: Record<string, { en: string; ar: string }> = {
     en: "A selected portfolio of national landmarks, strategic infrastructure, luxury destinations, institutional facilities, and corporate developments delivered to demanding technical standards across the UAE.",
     ar: "نماذج مختارة من مشاريع ومعالم وطنية وبنية تحتية استراتيجية ووجهات فاخرة ومنشآت مؤسسية وتجارية، تم تنفيذها وفق متطلبات فنية عالية داخل دولة الإمارات.",
   },
+  "pf.count": { en: "250+ Projects", ar: "أكثر من 250 مشروعًا" },
+  "pf.countNote": {
+    en: "And counting — these are just a selection. CASCATA has delivered 250+ projects for clients across the UAE.",
+    ar: "وما زال العدد يتزايد — هذه مجرد نماذج مختارة. نفّذت CASCATA أكثر من 250 مشروعًا لعملاء في مختلف أنحاء دولة الإمارات.",
+  },
   "pf.categoryAria": { en: "Portfolio categories", ar: "تصنيفات سابقة الأعمال" },
   "pf.projectsLabel": { en: "Projects & References", ar: "مشاريع ومراجع" },
   "pf.client": { en: "Client", ar: "العميل" },
