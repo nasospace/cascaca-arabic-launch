@@ -528,7 +528,7 @@ function PortfolioSection() {
                     src={logo}
                     alt={name}
                     loading="lazy"
-                    className="max-h-16 w-full object-contain opacity-75 grayscale saturate-0 contrast-125 brightness-90 transition-all duration-300 group-hover:opacity-100"
+                    className="max-h-16 w-full object-contain opacity-90 transition-all duration-300 group-hover:opacity-100"
                   />
                 </div>
               ))}
