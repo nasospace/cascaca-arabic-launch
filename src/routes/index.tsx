@@ -494,10 +494,21 @@ function PortfolioSection() {
               {t("pf.title")}
             </h2>
           </div>
-          <p className="max-w-3xl text-base leading-relaxed text-[#334260]/70 lg:ms-auto lg:text-lg">
-            {t("pf.intro")}
-          </p>
+          <div className="space-y-5 lg:ms-auto">
+            <p className="max-w-3xl text-base leading-relaxed text-[#334260]/70 lg:text-lg">
+              {t("pf.intro")}
+            </p>
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:gap-4">
+              <span className="font-display text-5xl font-extrabold leading-none tracking-tight text-[#334260] sm:text-6xl lg:text-7xl">
+                {t("pf.count")}
+              </span>
+              <span className="max-w-md text-sm font-semibold uppercase tracking-wide text-[#334260]/60">
+                {t("pf.countNote")}
+              </span>
+            </div>
+          </div>
         </div>
+
 
         <div className="space-y-8 border-y border-[#a1a1a1]/20 py-8 lg:py-10">
           <div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
