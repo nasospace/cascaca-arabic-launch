@@ -170,8 +170,8 @@ const dict: Record<string, { en: string; ar: string }> = {
   },
   "pf.count": { en: "250+ Projects", ar: "أكثر من 250 مشروعًا" },
   "pf.countNote": {
-    en: "And counting — these are just a selection. CASCATA has delivered 250+ projects for clients across the UAE.",
-    ar: "وما زال العدد يتزايد — هذه مجرد نماذج مختارة. نفّذت CASCATA أكثر من 250 مشروعًا لعملاء في مختلف أنحاء دولة الإمارات.",
+    en: "And counting. These are just a selection. CASCATA has delivered 250+ projects for clients across the UAE.",
+    ar: "وما زال العدد يتزايد. هذه مجرد نماذج مختارة. نفّذت CASCATA أكثر من 250 مشروعًا لعملاء في مختلف أنحاء دولة الإمارات.",
   },
   "pf.categoryAria": { en: "Portfolio categories", ar: "تصنيفات سابقة الأعمال" },
   "pf.projectsLabel": { en: "Projects & References", ar: "مشاريع ومراجع" },
@@ -351,3 +351,4 @@ export function useT() {
   if (!ctx) throw new Error("useT must be used within LanguageProvider");
   return ctx;
 }
+
