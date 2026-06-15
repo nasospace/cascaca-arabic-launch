@@ -36,7 +36,10 @@ const dict: Record<string, { en: string; ar: string }> = {
   // Hero
   "hero.slogan": { en: "Protection Builds Trust", ar: "الحماية تبني الثقة" },
   "hero.tagline": { en: "​", ar: "​" },
-  "hero.title": { en: "Engineering Excellence in Structural Protection", ar: "التميز الهندسي في حماية المنشآت" },
+  "hero.title": {
+    en: "Engineering Excellence in Structural Protection",
+    ar: "التميز الهندسي في حماية المنشآت",
+  },
   "hero.sub": {
     en: " Long-lasting engineering solutions for waterproofing, insulation, and structural durability.",
     ar: "حلول معتمدة في العزل المائي والحراري، ترميم الخرسانة، وحماية المنشآت للمشاريع السكنية والتجارية والصناعية في دولة الإمارات.",
@@ -58,7 +61,7 @@ const dict: Record<string, { en: string; ar: string }> = {
     ar: "نعتمد على أحدث التقنيات والمواد المعتمدة عالميًا، إلى جانب منهجية تنفيذ دقيقة، لضمان أعلى مستويات المتانة والاستدامة للمشروعات السكنية والتجارية والصناعية.",
   },
   "about.p3": {
-    en: "Our approach is built on engineering excellence, operational efficiency, and uncompromising quality standards — ensuring seamless project delivery from assessment and system design to installation, maintenance, and repairs.",
+    en: "Our approach is built on engineering excellence, operational efficiency, and uncompromising quality standards, ensuring seamless project delivery from assessment and system design to installation, maintenance, and repairs.",
     ar: "يقوم نهجنا على التميز الهندسي، والكفاءة التشغيلية، والالتزام الصارم بمعايير الجودة، لنضمن تنفيذًا متكاملًا يبدأ من دراسة المشروع وتصميم النظام المناسب، وصولًا إلى التنفيذ والصيانة والإصلاحات.",
   },
 
@@ -179,14 +182,17 @@ const dict: Record<string, { en: string; ar: string }> = {
   "pf.referencesCount": { en: "references", ar: "مرجعًا" },
   "pf.viewAll": { en: "View all references", ar: "عرض كل المراجع" },
   "pf.showLess": { en: "Show fewer", ar: "عرض أقل" },
-  "pf.hiddenProjects": { en: "Additional portfolio projects are available in this category.", ar: "توجد مشاريع إضافية ضمن هذا التصنيف." },
+  "pf.hiddenProjects": {
+    en: "Additional portfolio projects are available in this category.",
+    ar: "توجد مشاريع إضافية ضمن هذا التصنيف.",
+  },
   "pf.cta": { en: "Discuss a Similar Project", ar: "ناقش مشروعًا مشابهًا" },
 
   // Commitment
   "com.title": { en: "Our Commitment", ar: "التزامنا" },
   "com.eyebrow": { en: "Lasting Quality", ar: "جودة دائمة" },
   "com.p1": {
-    en: "At CASCATA, we believe that structural protection is not just a service — it is a long-term investment in safety, durability, and trust.",
+    en: "At CASCATA, we believe that structural protection is not just a service; it is a long-term investment in safety, durability, and trust.",
     ar: "في CASCATA، نؤمن أن حماية المنشآت ليست مجرد خدمة، بل استثمار طويل الأمد في الأمان والمتانة والثقة.",
   },
   "com.p2": {
@@ -203,7 +209,10 @@ const dict: Record<string, { en: string; ar: string }> = {
   },
 
   // Final CTA
-  "fcta.title": { en: "Secure Your Investment with Engineering Precision", ar: "احمِ استثمارك بدقة هندسية" },
+  "fcta.title": {
+    en: "Secure Your Investment with Engineering Precision",
+    ar: "احمِ استثمارك بدقة هندسية",
+  },
   "fcta.sub": {
     en: "Elevate your project's durability with certified systems, expert engineering, and trusted execution.",
     ar: "ارتقِ بمتانة مشروعك من خلال أنظمة معتمدة، وخبرة هندسية، وتنفيذ احترافي موثوق.",
@@ -227,8 +236,14 @@ const dict: Record<string, { en: string; ar: string }> = {
   "form.svc": { en: "Service interest (optional)", ar: "الخدمة المطلوبة (اختياري)" },
   "form.send": { en: "Send Inquiry", ar: "إرسال الطلب" },
   "form.required": { en: "Required", ar: "حقل مطلوب" },
-  "form.success": { en: "Thank you. Our team will reach out shortly.", ar: "شكراً لك. سيتواصل معك فريقنا قريبًا." },
-  "form.invalidPhone": { en: "Please enter a valid phone number", ar: "الرجاء إدخال رقم هاتف صحيح" },
+  "form.success": {
+    en: "Thank you. Our team will reach out shortly.",
+    ar: "شكراً لك. سيتواصل معك فريقنا قريبًا.",
+  },
+  "form.invalidPhone": {
+    en: "Please enter a valid phone number",
+    ar: "الرجاء إدخال رقم هاتف صحيح",
+  },
   "form.invalidEmail": { en: "Please enter a valid email", ar: "الرجاء إدخال بريد إلكتروني صحيح" },
 
   // Footer
@@ -274,14 +289,17 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Read stored or detect once on client
     try {
-      const stored = (typeof localStorage !== "undefined" && localStorage.getItem("cascata.lang")) as Lang | null;
+      const stored = (typeof localStorage !== "undefined" &&
+        localStorage.getItem("cascata.lang")) as Lang | null;
       if (stored === "en" || stored === "ar") {
         setLangState(stored);
         return;
       }
       const nav = typeof navigator !== "undefined" ? navigator.language || "" : "";
       if (nav.toLowerCase().startsWith("ar")) setLangState("ar");
-    } catch {}
+    } catch {
+      // Browser storage/language APIs can be unavailable in restricted contexts.
+    }
   }, []);
 
   useEffect(() => {
@@ -302,7 +320,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
     try {
       localStorage.setItem("cascata.lang", lang);
-    } catch {}
+    } catch {
+      // Ignore storage failures so language switching still works in-memory.
+    }
   }, [lang]);
 
   const setLang = useCallback((l: Lang) => setLangState(l), []);
@@ -314,13 +334,15 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       if (!entry) return k;
       return entry[lang];
     },
-    [lang]
+    [lang],
   );
 
   const dir: "ltr" | "rtl" = lang === "ar" ? "rtl" : "ltr";
 
   return (
-    <LanguageContext.Provider value={{ lang, dir, t, toggle, setLang }}>{children}</LanguageContext.Provider>
+    <LanguageContext.Provider value={{ lang, dir, t, toggle, setLang }}>
+      {children}
+    </LanguageContext.Provider>
   );
 }
 

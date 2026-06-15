@@ -11,7 +11,9 @@ export function Footer() {
             <div className="flex h-12 items-center justify-center rounded-xl bg-white/[0.05] border border-white/10 px-2.5 py-1.5 shadow-sm transition-all duration-300">
               <img src={logo} alt="CASCATA" className="h-full w-auto object-contain" />
             </div>
-            <span className="font-display text-xl font-extrabold tracking-[0.15em] text-white">CASCATA</span>
+            <span className="font-display text-xl font-extrabold tracking-[0.15em] text-white">
+              CASCATA
+            </span>
           </div>
           <p className="text-sm text-[#a1a1a1] leading-relaxed">
             {t("hero.tagline")} — {t("about.p1")}
@@ -19,18 +21,57 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-display text-sm font-bold text-white mb-4 tracking-widest uppercase">{t("ft.quick")}</h4>
+          <h4 className="font-display text-sm font-bold text-white mb-4 tracking-widest uppercase">
+            {t("ft.quick")}
+          </h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#about" className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300">{t("nav.about")}</a></li>
-            <li><a href="#why" className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300">{t("nav.why")}</a></li>
-            <li><a href="#portfolio" className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300">{t("nav.portfolio")}</a></li>
-            <li><a href="#alliances" className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300">{t("nav.alliances")}</a></li>
-            <li><a href="#contact" className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300">{t("nav.contact")}</a></li>
+            <li>
+              <a
+                href="#about"
+                className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300"
+              >
+                {t("nav.about")}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#why"
+                className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300"
+              >
+                {t("nav.why")}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#portfolio"
+                className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300"
+              >
+                {t("nav.portfolio")}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#alliances"
+                className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300"
+              >
+                {t("nav.alliances")}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="inline-block text-[#a1a1a1] hover:text-white hover:translate-x-1 transition-all duration-300"
+              >
+                {t("nav.contact")}
+              </a>
+            </li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-display text-sm font-bold text-white mb-4 tracking-widest uppercase">{t("ft.services")}</h4>
+          <h4 className="font-display text-sm font-bold text-white mb-4 tracking-widest uppercase">
+            {t("ft.services")}
+          </h4>
           <ul className="space-y-2 text-sm">
             <li className="text-[#a1a1a1]">{t("svc.a.t")}</li>
             <li className="text-[#a1a1a1]">{t("svc.b.t")}</li>
@@ -42,7 +83,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="font-display text-sm font-bold text-white mb-4 tracking-widest uppercase">{t("ft.contact")}</h4>
+          <h4 className="font-display text-sm font-bold text-white mb-4 tracking-widest uppercase">
+            {t("ft.contact")}
+          </h4>
           <ul className="space-y-2 text-sm text-[#a1a1a1] mb-4">
             <li dir="ltr">{WA_DISPLAY}</li>
             <li>{EMAIL}</li>
@@ -60,7 +103,9 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 py-5 text-xs text-[#a1a1a1] flex flex-col md:flex-row gap-2 justify-between">
-          <span>© {new Date().getFullYear()} CASCATA. {t("ft.rights")}</span>
+          <span>
+            © {new Date().getFullYear()} CASCATA. {t("ft.rights")}
+          </span>
           <span className="tracking-widest font-display">{t("hero.tagline")}</span>
         </div>
       </div>

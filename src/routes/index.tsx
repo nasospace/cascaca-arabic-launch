@@ -114,10 +114,12 @@ function HomePage() {
                   key={i}
                   className="group relative flex items-center gap-3 rounded-xl border border-white/[0.12] bg-white/[0.06] backdrop-blur-md px-4 py-3.5 hover:bg-white/[0.1] hover:border-white/20 hover:-translate-y-0.5 transition-all duration-300 cursor-default"
                 >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/15 ring-1 ring-primary/20 group-hover:bg-primary/20 group-hover:ring-primary/30 transition-all duration-300">
-                    <Icon className="h-[18px] w-[18px] text-primary" />
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/92 ring-1 ring-white/35 group-hover:bg-white group-hover:ring-[#637eb5]/45 transition-all duration-300">
+                    <Icon className="h-[18px] w-[18px] text-[#334260]" />
                   </div>
-                  <span className="text-[13px] font-semibold leading-tight text-white/90 group-hover:text-white transition-colors duration-300">{label}</span>
+                  <span className="text-[13px] font-semibold leading-tight text-white/90 group-hover:text-white transition-colors duration-300">
+                    {label}
+                  </span>
                 </div>
               ))}
             </div>
@@ -174,14 +176,24 @@ function HomePage() {
           </Card>
           <Card>
             <Award className="h-10 w-10 text-primary mb-4" />
-            <h3 className="font-display text-2xl font-extrabold tracking-tight text-foreground mb-3" id="vision">
+            <h3
+              className="font-display text-2xl font-extrabold tracking-tight text-foreground mb-3"
+              id="vision"
+            >
               {t("vision.title")}
             </h3>
             <p className="text-muted-foreground leading-relaxed">{t("vision.body")}</p>
           </Card>
         </div>
         <div className="mt-12 relative rounded-2xl overflow-hidden shadow-elegant">
-          <img src={mission} alt="" loading="lazy" className="w-full h-64 sm:h-80 object-cover" width={1280} height={960} />
+          <img
+            src={mission}
+            alt=""
+            loading="lazy"
+            className="w-full h-64 sm:h-80 object-cover"
+            width={1280}
+            height={960}
+          />
         </div>
       </Section>
 
@@ -213,7 +225,10 @@ function HomePage() {
       </Section>
 
       {/* SPECIALIZED SYSTEMS */}
-      <Section id="systems" className="bg-[color:var(--brand-deep)] text-white relative overflow-hidden">
+      <Section
+        id="systems"
+        className="bg-[color:var(--brand-deep)] text-white relative overflow-hidden"
+      >
         <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
         <div className="relative">
           <div className="text-center mb-12">
@@ -304,21 +319,21 @@ function HomePage() {
         {/* Partner logo grid — 5 cols desktop, 3 cols tablet, 2 cols mobile */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-5">
           {[
-            { src: logoSika,      name: "Sika" },
-            { src: logoMc,        name: "MC – Be Sure. Build Sure." },
-            { src: logoFosroc,    name: "Fosroc" },
-            { src: logoSoprema,   name: "Soprema" },
-            { src: logoBasf,      name: "BASF Master Builders" },
-            { src: logoPolybit,   name: "Polybit" },
-            { src: logoStoncor,   name: "StonCor Group" },
+            { src: logoSika, name: "Sika" },
+            { src: logoMc, name: "MC – Be Sure. Build Sure." },
+            { src: logoFosroc, name: "Fosroc" },
+            { src: logoSoprema, name: "Soprema" },
+            { src: logoBasf, name: "BASF Master Builders" },
+            { src: logoPolybit, name: "Polybit" },
+            { src: logoStoncor, name: "StonCor Group" },
             { src: logoFlowcrete, name: "Flowcrete" },
-            { src: logoAwazel,    name: "Awazel" },
-            { src: logoHilti,     name: "Hilti" },
-            { src: logoHenkel,    name: "Henkel" },
+            { src: logoAwazel, name: "Awazel" },
+            { src: logoHilti, name: "Hilti" },
+            { src: logoHenkel, name: "Henkel" },
             { src: logoCorrotech, name: "Corrotech" },
-            { src: logoMapei,     name: "Mapei" },
-            { src: logoVip,       name: "VIP Coating Solutions" },
-            { src: logoWeber,     name: "Weber" },
+            { src: logoMapei, name: "Mapei" },
+            { src: logoVip, name: "VIP Coating Solutions" },
+            { src: logoWeber, name: "Weber" },
           ].map(({ src, name }) => (
             <div
               key={name}
@@ -388,7 +403,9 @@ function HomePage() {
                 <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-1">
                   {t("ct.whatsapp")}
                 </p>
-                <p dir="ltr" className="font-display text-lg font-black text-foreground">{WA_DISPLAY}</p>
+                <p dir="ltr" className="font-display text-lg font-black text-foreground">
+                  {WA_DISPLAY}
+                </p>
               </div>
             </a>
             <a
@@ -479,7 +496,9 @@ function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState(portfolioCategories[0].id);
   const [expanded, setExpanded] = useState(false);
   const Arrow = dir === "rtl" ? ArrowLeft : ArrowRight;
-  const active = portfolioCategories.find((category) => category.id === activeCategory) ?? portfolioCategories[0];
+  const active =
+    portfolioCategories.find((category) => category.id === activeCategory) ??
+    portfolioCategories[0];
   const visibleProjects = expanded ? active.projects : active.projects.slice(0, 4);
   const hasHiddenProjects = active.projects.length > visibleProjects.length;
 
@@ -520,7 +539,9 @@ function PortfolioSection() {
                 <div
                   key={name}
                   className={`group flex min-h-20 items-center justify-center px-2 py-3 ${
-                    name === "AD Ports" || name === "Majid Al Futtaim" ? "col-span-2 sm:col-span-2 lg:col-span-1" : ""
+                    name === "AD Ports" || name === "Majid Al Futtaim"
+                      ? "col-span-2 sm:col-span-2 lg:col-span-1"
+                      : ""
                   }`}
                   title={name}
                 >
@@ -680,16 +701,16 @@ function PortfolioProjectRow({
               </span>
             )}
           </div>
-        {meta.length > 0 && (
-          <dl className="mt-4 space-y-1.5">
-            {meta.map((item) => (
-              <div key={item.label} className="text-sm leading-relaxed">
-                <dt className="me-1 inline font-bold text-[#a1a1a1]">{item.label}:</dt>
-                <dd className="inline font-medium text-[#334260]/70">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-        )}
+          {meta.length > 0 && (
+            <dl className="mt-4 space-y-1.5">
+              {meta.map((item) => (
+                <div key={item.label} className="text-sm leading-relaxed">
+                  <dt className="me-1 inline font-bold text-[#a1a1a1]">{item.label}:</dt>
+                  <dd className="inline font-medium text-[#334260]/70">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </div>
       </div>
     </article>
@@ -758,10 +779,24 @@ function ContactForm() {
       noValidate
       className="rounded-2xl border border-[#a1a1a1]/25 bg-white p-6 sm:p-8 shadow-card-soft space-y-4"
     >
-      <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
+      <input
+        type="text"
+        name="company"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden
+      />
       <div className="grid sm:grid-cols-2 gap-4">
         <Field label={t("form.name")} name="name" required error={errors.name} />
-        <Field label={t("form.phone")} name="phone" type="tel" required dir="ltr" error={errors.phone} />
+        <Field
+          label={t("form.phone")}
+          name="phone"
+          type="tel"
+          required
+          dir="ltr"
+          error={errors.phone}
+        />
       </div>
       <Field label={t("form.email")} name="email" type="email" dir="ltr" error={errors.email} />
       <Field label={t("form.svc")} name="service" />
